@@ -11,7 +11,7 @@ export const Navbar = () => {
         </li>
         <li className="nav__item">
           <a href="#" className="nav__link">
-            Car Rentals
+            Car Rent
           </a>
         </li>
         <li className="nav__item">
@@ -22,12 +22,12 @@ export const Navbar = () => {
         </li>
       </ul>
       <ul className="nav__list">
-        <li className="nav__item">
-          <a href="#" className="nav__link">
+        <li className="nav__item button">
+          <a href="#" className="nav__link ">
             Register
           </a>
         </li>
-        <li className="nav__item">
+        <li className="nav__item button">
           <a href="#" className="nav__link">
             Sign In
           </a>
