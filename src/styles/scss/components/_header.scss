@@ -1,0 +1,31 @@
+@use "../base/" as *;
+.header {
+  background-color: $blue;
+  height: 70vh;
+  color: $white;
+
+  &-container {
+    height: 100%;
+    @include universal-flex-display(space-between, initial);
+    flex-direction: column;
+    padding: 1em 0;
+
+    .navbar-container {
+      @include universal-flex-display(space-between, center);
+
+      .logo-container {
+        width: 30%;
+        cursor: pointer;
+      }
+    }
+
+    .header_text {
+      flex-grow: 0.8;
+    }
+  }
+}
+.container {
+  width: 95%;
+  max-width: 1350px;
+  margin: 0 auto;
+}
