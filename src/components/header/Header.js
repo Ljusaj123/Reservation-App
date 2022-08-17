@@ -3,8 +3,8 @@ import { Search } from "../search/Search";
 
 export const Header = () => {
   return (
-    <header>
-      <div className="container">
+    <header className="header">
+      <div className="container header-container">
         <div className="navbar-container">
           <div className="logo-container">
             <h2>Reserve</h2>
