@@ -29,16 +29,16 @@ h2 {
 h3 {
   font-size: clamp(1.3rem, calc(2.5vw + 0.6rem), 2rem);
 }
-p,
-a,
-li {
-  font-size: clamp(0.9rem, calc(2.5vw + 0.4rem), 1.3rem);
+p {
+  font-size: clamp(0.8rem, calc(2.5vw + 0.4rem), 1.3rem);
 }
 a {
   text-decoration: none;
+  font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
 }
 li {
   list-style: none;
+  font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
 }
 
 img {
