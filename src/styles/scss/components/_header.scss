@@ -1,4 +1,5 @@
 @use "../base/" as *;
+
 .header {
   background-color: $blue;
   height: 70vh;
@@ -21,6 +22,9 @@
 
     .header_text {
       flex-grow: 0.8;
+      @include universal-flex-display(center, center);
+      flex-direction: column;
+      text-align: center;
     }
   }
 }
