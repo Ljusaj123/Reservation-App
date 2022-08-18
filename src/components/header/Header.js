@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Navbar } from "../navbar/Navbar";
 import { Search } from "../search/Search";
 
 export const Header = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <header className="header">
       <div className="container header-container">
@@ -9,7 +12,18 @@ export const Header = () => {
           <div className="logo-container">
             <h2>Reserve</h2>
           </div>
-          <Navbar />
+          <Navbar props={show} />
+          <div className="hamburger" onClick={() => setShow((show) => !show)}>
+            <div
+              className={show ? "hamburger_list open" : "hamburger_list"}
+            ></div>
+            <div
+              className={show ? "hamburger_list open" : "hamburger_list"}
+            ></div>
+            <div
+              className={show ? "hamburger_list open" : "hamburger_list"}
+            ></div>
+          </div>
         </div>
         <div className="header_text">
           <h1>Find your next stay</h1>
