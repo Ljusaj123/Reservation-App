@@ -1,8 +1,8 @@
 import React from "react";
 
-export const Navbar = () => {
+export const Navbar = ({ props }) => {
   return (
-    <nav>
+    <nav className={props ? "nav show" : "nav"}>
       <ul className="nav__list">
         <li className="nav__item">
           <a href="#" className="nav__link">
