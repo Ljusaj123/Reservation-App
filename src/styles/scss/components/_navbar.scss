@@ -1,10 +1,10 @@
 @use "../base/" as *;
 
-nav {
+.nav {
   @include universal-flex-display(space-between, center);
   flex-grow: 1;
 
-  .nav__list {
+  &__list {
     display: flex;
 
     .nav__item + .nav__item {
@@ -31,5 +31,38 @@ nav {
 
   .button {
     background-color: rgb(110, 102, 194);
+  }
+}
+
+@include media-704 {
+  .nav {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    @include universal-flex-display(flex-start, center);
+    flex-direction: column;
+    background-color: rgb(4, 25, 44);
+    width: 100vw;
+    padding: 1em 0;
+    transition: all 0.3s ease;
+
+    &.show {
+      top: 0;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    &__list {
+      @include universal-flex-display(center, center);
+      flex-direction: column;
+      margin-bottom: 2em;
+
+      .nav__item + .nav__item {
+        margin-top: 2em;
+        margin-left: 0;
+      }
+    }
   }
 }
