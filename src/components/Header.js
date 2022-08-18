@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Navbar } from "../navbar/Navbar";
-import { Search } from "../search/Search";
+import { Navbar } from "./Navbar";
+import { Search } from "./Search";
 
 export const Header = () => {
   const [show, setShow] = useState(false);
