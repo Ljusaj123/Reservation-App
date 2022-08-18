@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.5rem, 2.5vw + 0.8rem, 3rem);
+  font-size: clamp(1.5rem, 3.5vw + 0.8rem, 3rem);
 }
 
 h3 {
@@ -52,7 +52,7 @@ img {
   max-width: 100%;
 }
 
-nav {
+.nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,37 +66,89 @@ nav {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-nav .nav__list {
+.nav__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-nav .nav__list .nav__item + .nav__item {
+.nav__list .nav__item + .nav__item {
   margin-left: 10px;
 }
-nav .nav__list .nav__item {
+.nav__list .nav__item {
   padding: 0.5em 1em;
   border: 0.1px solid transparent;
   border-radius: 25px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-nav .nav__list .nav__item:hover {
+.nav__list .nav__item:hover {
   background-color: rgba(83, 129, 172, 0.4);
 }
-nav .nav__list .nav__item:active {
+.nav__list .nav__item:active {
   border-color: black;
 }
-nav .nav__list .nav__item .nav__link {
+.nav__list .nav__item .nav__link {
   color: white;
 }
-nav .button {
+.nav .button {
   background-color: rgb(110, 102, 194);
 }
 
+@media screen and (max-width: 704px) {
+  .nav {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: rgb(4, 25, 44);
+    width: 100vw;
+    padding: 1em 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .nav.show {
+    top: 0;
+    opacity: 1;
+    z-index: 10;
+  }
+  .nav__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 2em;
+  }
+  .nav__list .nav__item + .nav__item {
+    margin-top: 2em;
+    margin-left: 0;
+  }
+}
 .header {
-  background-color: rgb(36, 9, 97);
   height: 70vh;
+  background-color: rgb(36, 9, 97);
   color: rgb(222, 224, 235);
 }
 .header-container {
@@ -127,6 +179,9 @@ nav .button {
       -ms-flex-align: center;
           align-items: center;
 }
+.header-container .navbar-container .hamburger {
+  display: none;
+}
 .header-container .navbar-container .logo-container {
   width: 30%;
   cursor: pointer;
@@ -135,10 +190,59 @@ nav .button {
   -webkit-box-flex: 0.8;
       -ms-flex-positive: 0.8;
           flex-grow: 0.8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
 }
 
 .container {
   width: 95%;
   max-width: 1350px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 704px) {
+  .header .header-container .navbar-container .hamburger {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 2%;
+    cursor: pointer;
+    z-index: 100;
+    height: 30px;
+    width: 30px;
+  }
+  .header .header-container .navbar-container .hamburger .hamburger_list {
+    pointer-events: none;
+    width: 100%;
+    background-color: white;
+    height: 3px;
+    margin: 5px 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .header .header-container .navbar-container .hamburger .hamburger_list.open:nth-child(2) {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+    background: transparent;
+  }
+  .header .header-container .navbar-container .hamburger .hamburger_list.open:nth-child(1) {
+    -webkit-transform: translateY(13px) rotate(45deg);
+            transform: translateY(13px) rotate(45deg);
+  }
+  .header .header-container .navbar-container .hamburger .hamburger_list.open:nth-child(3) {
+    -webkit-transform: translateY(-3px) rotate(-45deg);
+            transform: translateY(-3px) rotate(-45deg);
+  }
 }
