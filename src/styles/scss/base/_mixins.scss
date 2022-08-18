@@ -4,8 +4,8 @@
   align-items: $align;
 }
 
-@mixin media-768 {
-  @media screen and (max-width: 768px) {
+@mixin media-704 {
+  @media screen and (max-width: 704px) {
     @content;
   }
 }
