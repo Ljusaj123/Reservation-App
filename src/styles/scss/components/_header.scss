@@ -1,8 +1,8 @@
 @use "../base/" as *;
 
 .header {
-  background-color: $blue;
   height: 70vh;
+  background-color: $blue;
   color: $white;
 
   &-container {
@@ -13,6 +13,10 @@
 
     .navbar-container {
       @include universal-flex-display(space-between, center);
+
+      .hamburger {
+        display: none;
+      }
 
       .logo-container {
         width: 30%;
@@ -32,4 +36,38 @@
   width: 95%;
   max-width: 1350px;
   margin: 0 auto;
+}
+
+@include media-704 {
+  .header .header-container .navbar-container .hamburger {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 2%;
+    cursor: pointer;
+    z-index: 100;
+
+    height: 30px;
+    width: 30px;
+
+    .hamburger_list {
+      pointer-events: none;
+      width: 100%;
+      background-color: white;
+      height: 3px;
+      margin: 5px 0;
+      transition: all 0.5s ease;
+
+      &.open:nth-child(2) {
+        transform: rotate(720deg);
+        background: transparent;
+      }
+      &.open:nth-child(1) {
+        transform: translateY(13px) rotate(45deg);
+      }
+      &.open:nth-child(3) {
+        transform: translateY(-3px) rotate(-45deg);
+      }
+    }
+  }
 }
