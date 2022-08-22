@@ -5,6 +5,10 @@
   background-color: $blue;
   color: $white;
 
+  &.list-mode {
+    height: 20vh;
+  }
+
   &-container {
     height: 100%;
     @include universal-flex-display(space-between, initial);
@@ -19,7 +23,7 @@
       }
 
       .logo-container {
-        width: 30%;
+        width: 35%;
         cursor: pointer;
       }
     }
