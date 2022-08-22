@@ -36,18 +36,18 @@ export const Search = () => {
   return (
     <div className="header-search">
       <div className="header-search__item">
-        <FaBed className="header-search__icon" />
+        <FaBed className="header-search__item-icon" />
         <input
           type="text"
           placeholder="Where are you going?"
-          className="header-search__input"
+          className="header-search__item-input"
         />
       </div>
       <div className="header-search__item">
-        <FaCalendarAlt className="header-search__icon" />
+        <FaCalendarAlt className="header-search__item-icon" />
         <span
           onClick={() => setOpenDate(!openDate)}
-          className="header-search__text"
+          className="header-search__item-text"
         >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
           date[0].endDate,
           "dd/MM/yyyy"
@@ -63,28 +63,30 @@ export const Search = () => {
         )}
       </div>
       <div className="header-search__item">
-        <GoPerson className="header-search__icon" />
+        <GoPerson className="header-search__item-icon" />
         <span
           onClick={() => setOpenOptions(!openOptions)}
-          className="header-search__text"
+          className="header-search__item-text"
         >
           {`${options.adult} adult ${options.children} children ${options.room} room`}
         </span>
         {openOptions && (
           <div className="options">
             <div className="options__item">
-              <span className="options__text">Adult</span>
-              <div className="options__counter">
+              <span className="options__item-text">Adult</span>
+              <div className="options__item-counter">
                 <button
                   disabled={options.adult <= 1}
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("adult", "d")}
                 >
                   -
                 </button>
-                <span className="options__counter-number">{options.adult}</span>
+                <span className="options__item-counter-number">
+                  {options.adult}
+                </span>
                 <button
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("adult", "i")}
                 >
                   +
@@ -92,20 +94,20 @@ export const Search = () => {
               </div>
             </div>
             <div className="options__item">
-              <span className="options__text">Children</span>
-              <div className="options__counter">
+              <span className="options__item-text">Children</span>
+              <div className="options__item-counter">
                 <button
                   disabled={options.children <= 0}
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("children", "d")}
                 >
                   -
                 </button>
-                <span className="options__counter-number">
+                <span className="options__item-counter-number">
                   {options.children}
                 </span>
                 <button
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("children", "i")}
                 >
                   +
@@ -113,18 +115,20 @@ export const Search = () => {
               </div>
             </div>
             <div className="options__item">
-              <span className="options__text">Room</span>
-              <div className="options__counter">
+              <span className="options__item-text">Room</span>
+              <div className="options__item-counter">
                 <button
                   disabled={options.room <= 1}
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("room", "d")}
                 >
                   -
                 </button>
-                <span className="options__counter-number">{options.room}</span>
+                <span className="options__item-counter-number">
+                  {options.room}
+                </span>
                 <button
-                  className="options__counter-button"
+                  className="options__item-counter-button"
                   onClick={() => handleOption("room", "i")}
                 >
                   +
