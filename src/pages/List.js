@@ -1,9 +1,11 @@
-import React from 'react'
+import { Header } from "../components/Header";
 
 function List() {
   return (
-    <div>List</div>
-  )
+    <div>
+      <Header type="list" />
+    </div>
+  );
 }
 
-export default List
+export default List;
