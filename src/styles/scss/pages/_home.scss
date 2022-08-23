@@ -3,5 +3,10 @@
   margin: 2em 0;
   @include universal-flex-display(initial, center);
   flex-direction: column;
-  gap: 1em;
+  gap: 4em;
+  padding: 3em 0;
+
+  .home__title {
+    width: 100%;
+  }
 }
