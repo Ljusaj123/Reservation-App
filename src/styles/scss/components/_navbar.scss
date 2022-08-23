@@ -18,19 +18,19 @@
       transition: all 0.2s ease;
 
       &:hover {
-        background-color: rgba(83, 129, 172, 0.4);
+        background-color: $opacity-blue;
       }
       &:active {
-        border-color: black;
+        border-color: $black;
       }
       .nav__link {
-        color: white;
+        color: $white;
       }
     }
   }
 
-  .button {
-    background-color: rgb(110, 102, 194);
+  .login-register {
+    background-color: $light-purple;
   }
 }
 
