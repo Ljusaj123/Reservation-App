@@ -1,16 +1,17 @@
 @use "../base/" as *;
 
 .header {
-  height: 70vh;
+  height: fit-content;
   background-color: $blue;
   color: $white;
+  padding-bottom: 2em;
 
   &.list-mode {
     height: 20vh;
   }
 
   &-container {
-    height: 100%;
+    min-height: 70vh;
     @include universal-flex-display(space-between, initial);
     flex-direction: column;
     padding: 1em 0;
@@ -29,10 +30,11 @@
     }
 
     .header_text {
-      flex-grow: 0.8;
+      flex-grow: 1;
       @include universal-flex-display(center, center);
       flex-direction: column;
       text-align: center;
+      margin-bottom: 2em;
     }
   }
 }
