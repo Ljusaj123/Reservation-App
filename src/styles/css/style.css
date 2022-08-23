@@ -85,12 +85,12 @@ img {
   background-color: rgba(83, 129, 172, 0.4);
 }
 .nav__list .nav__item:active {
-  border-color: black;
+  border-color: rgb(1, 2, 10);
 }
 .nav__list .nav__item .nav__link {
-  color: white;
+  color: rgb(255, 255, 255);
 }
-.nav .button {
+.nav .login-register {
   background-color: rgb(110, 102, 194);
 }
 
@@ -186,7 +186,7 @@ img {
   display: none;
 }
 .header-container .navbar-container .logo-container {
-  width: 35%;
+  width: 33%;
   cursor: pointer;
 }
 .header-container .header_text {
@@ -264,7 +264,7 @@ img {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   background-color: rgb(255, 255, 255);
-  border: 3px solid rgb(172, 146, 209);
+  border: 3px solid rgb(110, 102, 194);
   border-radius: 5px;
   margin: 0 auto;
   position: relative;
@@ -331,7 +331,7 @@ img {
   transition: all 0.3s ease;
 }
 .header-search__button .search-button:active {
-  border: 3px solid rgb(172, 146, 209);
+  border: 3px solid rgb(110, 102, 194);
 }
 .header-search__button .search-button:hover {
   background-color: rgb(36, 9, 97);
@@ -375,7 +375,7 @@ img {
   padding: 0.5em 0.7em;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(172, 146, 209);
+  border: 1px solid rgb(110, 102, 194);
 }
 .options__item-counter-button:disabled {
   cursor: not-allowed;
