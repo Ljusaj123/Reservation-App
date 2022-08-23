@@ -21,13 +21,13 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2rem, calc(2.5vw + 1.2rem), 4rem);
+  font-size: clamp(2rem, calc(4vw + 1.2rem), 4rem);
 }
 h2 {
-  font-size: clamp(1.5rem, calc(3.5vw + 0.8rem), 3rem);
+  font-size: clamp(1.4rem, calc(3.5vw + 0.8rem), 3rem);
 }
 h3 {
-  font-size: clamp(1.3rem, calc(2.5vw + 0.6rem), 2rem);
+  font-size: clamp(1.2rem, calc(2.5vw + 0.6rem), 2rem);
 }
 p {
   font-size: clamp(0.8rem, calc(2.5vw + 0.4rem), 1.3rem);
