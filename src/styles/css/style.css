@@ -291,7 +291,7 @@ img {
   color: rgb(145, 143, 145);
 }
 .header-search__item-input, .header-search__item-text {
-  font-size: clamp(0.9rem, 2vw + 0.4rem, 1.1rem);
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
   line-height: 2;
 }
 .header-search__item-input {
@@ -325,7 +325,7 @@ img {
   padding: 1em 2.5em;
   background-color: rgb(61, 51, 112);
   color: rgb(255, 255, 255);
-  font-size: clamp(0.9rem, 2vw + 0.4rem, 1.1rem);
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
