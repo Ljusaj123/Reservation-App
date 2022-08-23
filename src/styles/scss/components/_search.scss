@@ -39,6 +39,7 @@
     .date {
       position: absolute;
       top: 100%;
+      z-index: 2;
     }
   }
   &__button {
@@ -73,6 +74,7 @@
   color: $lightgrey;
   border-radius: 5px;
   padding: 1em;
+  z-index: 2;
 
   &__item {
     @include universal-flex-display(space-between, initial);
