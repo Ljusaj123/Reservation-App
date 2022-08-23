@@ -76,6 +76,9 @@ img {
 .home-container .home__title {
   width: 100%;
 }
+.home-container > h2 {
+  color: rgb(36, 9, 97);
+}
 
 .nav {
   display: -webkit-box;
@@ -476,4 +479,64 @@ img {
 }
 .home-list__item > span {
   font-size: clamp(0.9rem, 1.3vw + 0.3rem, 1.3rem);
+}
+
+.email {
+  background-color: rgb(36, 9, 97);
+  width: 100vw;
+  min-height: 30vh;
+  color: rgb(255, 255, 255);
+}
+.email > .container {
+  padding: 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.email .email__input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: clamp(350px, 50%, 600px);
+  margin: 2em auto;
+}
+.email .email__input-container input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  outline: none;
+  border: none;
+  line-height: 2;
+  border-radius: 5px;
+  padding: 0.7em 1em;
+  margin-right: 1em;
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
+}
+.email .email__input-container button {
+  border: none;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  padding: 0.7em 1em;
+  background-color: rgb(61, 51, 112);
+  color: rgb(255, 255, 255);
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.email .email__input-container button:active {
+  border: 3px solid rgb(110, 102, 194);
 }
