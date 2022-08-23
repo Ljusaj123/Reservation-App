@@ -1,0 +1,43 @@
+@use "../base/" as *;
+.home-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    flex: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    flex-basis: 350px;
+    flex-direction: column;
+
+    &-img {
+      width: 100%;
+      object-fit: cover;
+    }
+    &-name {
+      font-weight: $fw-bold;
+    }
+    &-city {
+      font-weight: $fw-light;
+    }
+    &-price {
+      font-weight: $fw-normal;
+    }
+
+    &-rating > button {
+      background-color: $blue;
+      color: $white;
+      border: none;
+      padding: 0.5em 0.7em;
+      margin-right: 1em;
+      font-weight: $fw-bold;
+    }
+    & > span {
+      font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
+    }
+  }
+}
