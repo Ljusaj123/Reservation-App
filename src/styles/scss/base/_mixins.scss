@@ -4,13 +4,18 @@
   align-items: $align;
 }
 
+@mixin media-860 {
+  @media screen and (max-width: 860px) {
+    @content;
+  }
+}
 @mixin media-704 {
   @media screen and (max-width: 704px) {
     @content;
   }
 }
-@mixin media-1024 {
-  @media screen and (max-width: 1024px) {
+@mixin media-1124 {
+  @media screen and (max-width: 1124px) {
     @content;
   }
 }
