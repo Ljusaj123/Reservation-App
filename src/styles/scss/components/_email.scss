@@ -1,0 +1,48 @@
+@use "../base/" as *;
+
+.email {
+  background-color: $blue;
+  width: 100vw;
+  min-height: 30vh;
+  color: $white;
+
+  & > .container {
+    padding: 2em 0;
+    @include universal-flex-display(center, center);
+    flex-direction: column;
+  }
+
+  .email__input-container {
+    display: flex;
+    align-items: center;
+    width: clamp(350px, 50%, 600px);
+    margin: 2em auto;
+
+    input {
+      flex-grow: 1;
+      outline: none;
+      border: none;
+      line-height: 2;
+      border-radius: 5px;
+      padding: 0.7em 1em;
+      margin-right: 1em;
+      font-size: $search-font-size;
+    }
+
+    button {
+      border: none;
+      border: 3px solid transparent;
+      border-radius: 5px;
+      padding: 0.7em 1em;
+      background-color: $medium-purple;
+      color: $white;
+      font-size: $search-font-size;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:active {
+        border: 3px solid $light-purple;
+      }
+    }
+  }
+}
