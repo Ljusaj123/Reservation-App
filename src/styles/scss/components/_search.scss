@@ -1,4 +1,5 @@
 @use "../base/" as *;
+
 .header-search {
   max-width: 1200px;
   width: 100%;
@@ -23,7 +24,7 @@
 
     &-input,
     &-text {
-      font-size: clamp(0.9rem, calc(2vw + 0.4rem), 1.1rem);
+      font-size: $search-font-size;
       line-height: 2;
     }
 
@@ -51,7 +52,7 @@
       padding: 1em 2.5em;
       background-color: $medium-purple;
       color: $white;
-      font-size: clamp(0.9rem, calc(2vw + 0.4rem), 1.1rem);
+      font-size: $search-font-size;
       cursor: pointer;
       transition: all 0.3s ease;
 
@@ -97,12 +98,13 @@
   }
 }
 
-@media screen and (max-width: 860px) {
+@include media-860 {
   .header-search {
     display: block;
   }
 }
-@media screen and (max-width: 1124px) {
+
+@include media-1124 {
   .header-search .header-search__button {
     justify-content: center;
   }
