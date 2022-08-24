@@ -2,8 +2,10 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div>
-      <button>AAA</button>
-    </div>
+    <footer>
+      <div className="container">
+        <p>This app is modeled after the Booking.com traveling app. </p>
+      </div>
+    </footer>
   );
 };
