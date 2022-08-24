@@ -25,7 +25,7 @@ export const SearchItemCard = () => {
           <button>8.9</button>
         </div>
         <div className="search-item__detailTexts">
-          <p className="search-item__price">$112</p>
+          <h3 className="search-item__price">$112</h3>
           <span className="search-item__taxOp">Includes taxes and fees</span>
           <button className="search-item__checkButton">See availability</button>
         </div>
