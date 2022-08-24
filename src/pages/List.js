@@ -33,6 +33,7 @@ function List() {
                   onChange={(item) => setDate([item.selection])}
                   minDate={new Date()}
                   ranges={date}
+                  className="date"
                 />
               )}
             </div>
