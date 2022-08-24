@@ -5,9 +5,9 @@ export const RatingCard = ({ props }) => {
   return (
     <div className="home-list__item">
       <img src={imgURL} alt={name} className="home-list__item-img" />
-      <span className="home-list__item-name">{name}</span>
-      <span className="home-list__item-city">{city}</span>
-      <span className="home-list__item-price">{price}</span>
+      <h3 className="home-list__item-name">{name}</h3>
+      <p className="home-list__item-city">{city}</p>
+      <p className="home-list__item-price">{price}</p>
       <div className="home-list__item-rating">
         <button>{rating}</button>
         <span>{grade}</span>
