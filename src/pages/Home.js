@@ -4,6 +4,7 @@ import { HomeRating } from "../components/HomeRating";
 import { HomeList } from "../components/HomeList";
 import { cityList, propertyList, ratingList } from "../const/Lists";
 import { EmailList } from "../components/EmailList";
+import { Footer } from "../components/Footer";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
         <HomeRating props={ratingList} />
         <EmailList />
       </main>
+      <Footer />
     </div>
   );
 }
