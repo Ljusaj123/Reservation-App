@@ -1,6 +1,5 @@
 @use "../base/index" as *;
 .home-container {
-  margin: 2em 0;
   @include universal-flex-display(initial, center);
   flex-direction: column;
   gap: 4em;
