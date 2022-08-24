@@ -32,7 +32,8 @@ h3 {
   font-size: clamp(1.1rem, calc(2.5vw + 0.6rem), 1.7rem);
   margin: 0.3em 0;
 }
-p {
+p,
+label {
   font-size: clamp(0.8rem, calc(2vw + 0.4rem), 1.3rem);
 }
 a {
