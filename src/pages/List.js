@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
+import { SearchItem } from "../components/SearchItem";
 
 function List() {
   const location = useLocation();
@@ -79,7 +80,9 @@ function List() {
             </div>
             <button>Search</button>
           </div>
-          <div className="list-result"></div>
+          <div className="list-result">
+            <SearchItem />
+          </div>
         </div>
       </div>
     </div>
