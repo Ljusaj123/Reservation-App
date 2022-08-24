@@ -15,9 +15,9 @@ function Home() {
         <HomeList props={cityList} />
         <h2 className="home__title ">Browse by property type</h2>
         <HomeList props={propertyList} />
+        <EmailList />
         <h2 className="home__title ">Home guests love</h2>
         <HomeRating props={ratingList} />
-        <EmailList />
       </main>
       <Footer />
     </div>
