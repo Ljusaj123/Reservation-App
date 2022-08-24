@@ -29,19 +29,16 @@
       font-size: $search-font-size;
     }
 
-    button {
-      border: none;
-      border: 3px solid transparent;
+    .subscribe-button {
       border-radius: 5px;
-      padding: 0.7em 1em;
-      background-color: $medium-purple;
-      color: $white;
-      font-size: $search-font-size;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 0.8em 1em;
+      background-color: $light-purple;
 
       &:active {
-        border: 3px solid $light-purple;
+        border-color: $black;
+      }
+      &:hover {
+        background-color: $opacity-blue;
       }
     }
   }
