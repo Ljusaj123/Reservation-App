@@ -38,11 +38,6 @@
     }
   }
 }
-.container {
-  width: 95%;
-  max-width: 1350px;
-  margin: 0 auto;
-}
 
 @include media-704 {
   .header .header-container .navbar-container .hamburger {
