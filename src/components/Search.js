@@ -5,10 +5,14 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 export const Search = () => {
   const [openDate, setOpenDate] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
+  const [destination, setDestination] = useState("");
+
+  const navigate = useNavigate();
 
   const [date, setDate] = useState([
     {
@@ -33,6 +37,10 @@ export const Search = () => {
     });
   };
 
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
+  };
+
   return (
     <div className="header-search">
       <div className="header-search__item">
@@ -41,6 +49,7 @@ export const Search = () => {
           type="text"
           placeholder="Where are you going?"
           className="header-search__item-input"
+          onChange={(e) => setDestination(e.target.value)}
         />
       </div>
       <div className="header-search__item">
@@ -139,7 +148,9 @@ export const Search = () => {
         )}
       </div>
       <div className="header-search__item header-search__button">
-        <button className="search-button">Search</button>
+        <button className="search-button" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </div>
   );
