@@ -1,8 +1,6 @@
 @use "../base/" as *;
 .list-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 .list-wrapper {
@@ -11,7 +9,7 @@
 }
 
 .list-search {
-  flex: 1;
+  flex: 1.2;
   background-color: $blue;
   padding: 3em 1em;
   border-radius: 10px;
@@ -20,44 +18,52 @@
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  height: max-content;
+  min-width: 300px;
 
-  width: clamp(250px, 40vw, 450px);
-}
-.listResult {
-  flex: 3;
-}
-
-.list-search__title {
-  color: $white;
-}
-.list-search__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.list-search__item > input {
-  border: none;
-  padding: 1em;
-}
-.list-search__item > span {
-  padding: 0.6em;
-  background-color: $white;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.list-search > button {
-  padding: 1em;
-  background-color: $medium-purple;
-  border: none;
-  color: $white;
-  transition: all 0.3s ease;
-
-  &:active {
-    transform: scale(0.9);
+  &__title {
+    color: $white;
   }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    & > span {
+      padding: 0.6em;
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    & > label {
+      color: $white;
+    }
+    & > input {
+      border: none;
+      outline: none;
+      padding: 1em;
+
+      &::placeholder {
+        color: $black;
+      }
+    }
+  }
+  & > button {
+    padding: 1em;
+    background-color: $medium-purple;
+    border: none;
+    color: $white;
+    transition: all 0.3s ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+.list-result {
+  flex: 2.8;
 }
 
 .option-item {
@@ -68,5 +74,7 @@
 
   &__input {
     max-width: 50px;
+    outline: none;
+    padding: 0.3em;
   }
 }
