@@ -13,6 +13,7 @@
     overflow: hidden;
     flex-basis: 350px;
     flex-direction: column;
+    gap: 0.5em;
 
     &-img {
       width: 100%;
@@ -36,8 +37,8 @@
       margin-right: 1em;
       font-weight: $fw-bold;
     }
-    & > span {
-      font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
+    &-rating > span {
+      font-size: clamp(0.9rem, calc(2.3vw + 0.3rem), 1.3rem);
     }
   }
 }
