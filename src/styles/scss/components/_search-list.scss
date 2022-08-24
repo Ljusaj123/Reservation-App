@@ -51,6 +51,7 @@
   &__rating {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     & > span {
       font-weight: $fw_bold;
@@ -84,6 +85,22 @@
 
     &:active {
       transform: scale(0.9);
+    }
+  }
+}
+
+@include media-800 {
+  .search-item {
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    &__img {
+      width: 100%;
+      max-width: none;
+    }
+    &__rating {
+      justify-content: flex-end;
+      gap: 1em;
     }
   }
 }

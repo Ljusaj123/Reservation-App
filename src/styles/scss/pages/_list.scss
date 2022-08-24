@@ -78,3 +78,31 @@
     padding: 0.3em;
   }
 }
+
+@include media-1200 {
+  .list-wrapper {
+    flex-direction: column;
+  }
+  .list-search {
+    position: static;
+    top: 2em;
+    gap: 1.5em;
+    width: clamp(340px, 95vw, 700px);
+    margin: 0 auto;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      position: relative;
+
+      .date {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+  }
+}
+
