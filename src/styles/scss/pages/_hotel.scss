@@ -1,0 +1,90 @@
+@use "../base/" as *;
+
+.hotel {
+  margin-top: 3em;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+
+  &__intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+
+  &__address > span {
+    font-size: $search-font-size;
+    margin-left: 0.5em;
+    font-weight: $fw_bold;
+  }
+  &__address > svg {
+    font-size: $search-font-size;
+  }
+
+  &__location {
+    color: $blue;
+  }
+
+  &__price-highlight {
+    color: $green;
+  }
+
+  //need to solve this image container
+
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__image > img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    padding: 1em 0;
+    margin-bottom: 2em;
+    gap: 2em;
+  }
+  &__text {
+    flex: 2;
+  }
+  &__details-price {
+    flex: 1;
+    padding: 1em 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background-color: $blue;
+    color: $white;
+    border-radius: 10px;
+  }
+}
+
+.reserve-button {
+  border-radius: 5px;
+  background-color: $medium-purple;
+  padding: 0.7em 1em;
+  transform: all 0.3s ease;
+
+  &:active {
+    border-color: $light-purple;
+    transform: scale(0.9);
+  }
+}
