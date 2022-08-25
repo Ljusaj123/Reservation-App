@@ -50,15 +50,23 @@ function Hotel() {
   };
   return (
     <>
-      {console.log(slideNumber)}
       <Header type="list" />
       <div className="hotel">
         <div className="hotel-container container">
           {open && (
             <div className="slider">
-              <BsFillArrowLeftCircleFill onClick={() => handleMove("l")} />
-              <BsFillArrowRightCircleFill onClick={() => handleMove("d")} />
-              <IoMdCloseCircle onClick={() => setOpen(false)} />
+              <BsFillArrowLeftCircleFill
+                onClick={() => handleMove("l")}
+                className="left-arrow-icon"
+              />
+              <BsFillArrowRightCircleFill
+                onClick={() => handleMove("d")}
+                className="right-arrow-icon"
+              />
+              <IoMdCloseCircle
+                onClick={() => setOpen(false)}
+                className="close-icon"
+              />
               <img src={photos[slideNumber].src} alt="" className="sliderImg" />
             </div>
           )}
