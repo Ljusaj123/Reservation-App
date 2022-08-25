@@ -53,6 +53,11 @@
   &__image > img {
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   &__details {
@@ -86,5 +91,42 @@
   &:active {
     border-color: $light-purple;
     transform: scale(0.9);
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  z-index: 2;
+  @include universal-flex-display(center, center);
+
+  & > svg {
+    position: absolute;
+    color: $white;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .right-arrow-icon {
+    top: 50%;
+    right: 15%;
+  }
+  .left-arrow-icon {
+    top: 50%;
+    left: 15%;
+  }
+  .close-icon {
+    top: 1%;
+    right: 15%;
   }
 }
