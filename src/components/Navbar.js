@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = ({ props }) => {
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+  const [destination, setDestination] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
+  };
   return (
     <nav className={props ? "nav show" : "nav"}>
       <ul className="nav__list">
         <li className="nav__item">
-          <a href="/hotels" className="nav__link">
+          <a onClick={handleSearch} className="nav__link">
             Stays
           </a>
         </li>
