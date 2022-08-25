@@ -25,11 +25,11 @@ h1 {
   margin: 0.5em 0;
 }
 h2 {
-  font-size: clamp(1.4rem, calc(3.5vw + 0.8rem), 3rem);
+  font-size: clamp(1.4rem, calc(3vw + 0.8rem), 3rem);
   margin: 0.5em 0;
 }
 h3 {
-  font-size: clamp(1.1rem, calc(2.5vw + 0.6rem), 1.7rem);
+  font-size: clamp(1.1rem, calc(2.5vw + 0.6rem), 2rem);
   margin: 0.3em 0;
 }
 p,
