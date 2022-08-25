@@ -28,12 +28,12 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.4rem, 3.5vw + 0.8rem, 3rem);
+  font-size: clamp(1.4rem, 3vw + 0.8rem, 3rem);
   margin: 0.5em 0;
 }
 
 h3 {
-  font-size: clamp(1.1rem, 2.5vw + 0.6rem, 1.7rem);
+  font-size: clamp(1.1rem, 2.5vw + 0.6rem, 2rem);
   margin: 0.3em 0;
 }
 
@@ -239,6 +239,118 @@ button {
     z-index: 2;
   }
 }
+.hotel {
+  margin-top: 3em;
+}
+.hotel-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.hotel__intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.hotel__intro-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+.hotel__address > span {
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
+  margin-left: 0.5em;
+  font-weight: 700;
+}
+.hotel__address > svg {
+  font-size: clamp(0.9rem, 2vw + 0.3rem, 1.1rem);
+}
+.hotel__location {
+  color: rgb(36, 9, 97);
+}
+.hotel__price-highlight {
+  color: #008009;
+}
+.hotel__images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.hotel__image {
+  width: 100%;
+}
+.hotel__image > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hotel__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em 0;
+  margin-bottom: 2em;
+  gap: 2em;
+}
+.hotel__text {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+.hotel__details-price {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1em 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+  background-color: rgb(36, 9, 97);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.reserve-button {
+  border-radius: 5px;
+  background-color: rgb(58, 50, 95);
+  padding: 0.7em 1em;
+  -webkit-transform: all 0.3s ease;
+          transform: all 0.3s ease;
+}
+.reserve-button:active {
+  border-color: rgb(110, 102, 194);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
