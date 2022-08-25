@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../components/Header";
 import { EmailList } from "../components/EmailList";
 import { Footer } from "../components/Footer";
 import { GoLocation } from "react-icons/go";
+import { IoMdCloseCircle } from "react-icons/io";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 function Hotel() {
+  const [open, setOpen] = useState(false);
+  const [slideNumber, setSlideNumber] = useState(0);
   const photos = [
     {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -25,11 +32,37 @@ function Hotel() {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
     },
   ];
+
+  const handleSlider = (i) => {
+    setOpen(true);
+    setSlideNumber(i);
+  };
+
+  const handleMove = (move) => {
+    let newSlideNumber;
+    if (move === "l") {
+      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
+    } else {
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
+    }
+
+    setSlideNumber(newSlideNumber);
+  };
   return (
     <>
+      {console.log(slideNumber)}
       <Header type="list" />
       <div className="hotel">
         <div className="hotel-container container">
+          {open && (
+            <div className="slider">
+              <BsFillArrowLeftCircleFill onClick={() => handleMove("l")} />
+              <BsFillArrowRightCircleFill onClick={() => handleMove("d")} />
+              <IoMdCloseCircle onClick={() => setOpen(false)} />
+              <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+            </div>
+          )}
+
           <div className="hotel__intro">
             <div className="hotel__intro-text">
               <h1 className="hotel__titile">Tower Street apartments</h1>
@@ -51,7 +84,11 @@ function Hotel() {
           <div className="hotel__images">
             {photos.map((photo, index) => {
               return (
-                <div className="hotel__image" key={index}>
+                <div
+                  className="hotel__image"
+                  key={index}
+                  onClick={() => handleSlider(index)}
+                >
                   <img src={photo.src} alt="" />
                 </div>
               );
