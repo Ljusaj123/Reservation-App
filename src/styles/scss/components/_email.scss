@@ -1,45 +1,22 @@
 @use "../base/" as *;
 
 .email {
-  background-color: $blue;
+  background-color: $medium-blue;
   width: 100vw;
   min-height: 30vh;
   color: $white;
 
-  & > .container {
+  &-container {
     padding: 2em 0;
     @include universal-flex-display(center, center);
     flex-direction: column;
   }
 
-  .email__input-container {
-    display: flex;
-    align-items: center;
-    width: clamp(350px, 50%, 600px);
+  &__input-container {
+    @include universal-flex-display(initial, center);
+    width: clamp(300px, 50%, 600px);
     margin: 2em auto;
-
-    input {
-      flex-grow: 1;
-      outline: none;
-      border: none;
-      line-height: 1.5;
-      border-radius: 5px;
-      padding: 0.7em 1em;
-      margin-right: 1em;
-      font-size: $search-font-size;
-    }
-
-    .subscribe-button {
-      border-radius: 5px;
-      padding: 0.8em 1em;
-      background-color: $light-purple;
-
-      &:active {
-        border-color: $black;
-      }
-      &:hover {
-        background-color: $opacity-blue;
-      }
-    }
+    flex-wrap: wrap;
+    gap: 2em;
   }
 }
