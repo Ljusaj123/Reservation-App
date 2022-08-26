@@ -16,7 +16,11 @@ export const SearchHotels = () => {
       <h3 className="hotels-search__title">Search</h3>
       <div className="hotels-search__item">
         <label>Destination</label>
-        <input type="text" placeholder={destination} />
+        <input
+          type="text"
+          placeholder={destination}
+          className="input__search"
+        />
       </div>
       <div className="hotels-search__item">
         <label>Check-in date</label>
@@ -39,20 +43,20 @@ export const SearchHotels = () => {
           <span className="option-item__text">
             Min price<small> per night</small>
           </span>
-          <input type="number" className="option-item__input" />
+          <input type="number" className="input__price" />
         </div>
         <div className="option-item">
           <span className="option-item__text">
             Max price<small> per night</small>
           </span>
-          <input type="number" className="option-item__input" />
+          <input type="number" className="input__price" />
         </div>
         <div className="option-item">
           <span className="option-item__text">Adult</span>
           <input
             type="number"
             min={1}
-            className="option-item__input"
+            className="input__number"
             placeholder={options.adult}
           />
         </div>
@@ -61,7 +65,7 @@ export const SearchHotels = () => {
           <input
             type="number"
             min={0}
-            className="option-item__input"
+            className="input__number"
             placeholder={options.children}
           />
         </div>
@@ -70,7 +74,7 @@ export const SearchHotels = () => {
           <input
             type="number"
             min={1}
-            className="option-item__input"
+            className="input__number"
             placeholder={options.room}
           />
         </div>
