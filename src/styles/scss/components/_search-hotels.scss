@@ -1,5 +1,5 @@
 @use "../base/" as *;
-.list-search {
+.hotels-search {
   flex: 1;
   background-color: $medium-blue;
   padding: 3em 1em;
@@ -57,7 +57,7 @@
 }
 
 @include media-1200 {
-  .list-search {
+  .hotels-search {
     position: static;
     top: 2em;
     gap: 1.5em;
