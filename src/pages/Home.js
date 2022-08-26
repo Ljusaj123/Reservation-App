@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../components/Header";
-import { HomeRating } from "../components/HomeRating";
-import { HomeList } from "../components/HomeList";
+import { RatingList } from "../components/RatingList";
+import { CardsList } from "../components/CardsList";
 import { cityList, propertyList, ratingList } from "../const/Lists";
 import { EmailList } from "../components/EmailList";
 import { Footer } from "../components/Footer";
@@ -12,12 +12,12 @@ function Home() {
       <Header />
       <main className="home-container container">
         <h2 className="home__title">Browse by city</h2>
-        <HomeList props={cityList} />
+        <CardsList props={cityList} />
         <h2 className="home__title ">Browse by property type</h2>
-        <HomeList props={propertyList} />
+        <CardsList props={propertyList} />
         <EmailList />
         <h2 className="home__title ">Home guests love</h2>
-        <HomeRating props={ratingList} />
+        <RatingList props={ratingList} />
       </main>
       <Footer />
     </div>
