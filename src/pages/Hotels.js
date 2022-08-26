@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
-import { ListResult } from "../components/ListResult";
+import { ResultList } from "../components/ResultList";
 
-function List() {
+function Hotels() {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
@@ -79,13 +79,13 @@ function List() {
                 />
               </div>
             </div>
-            <button>Search</button>
+            <button className="button__search">Search</button>
           </div>
-          <ListResult />
+          <ResultList />
         </div>
       </div>
     </div>
   );
 }
 
-export default List;
+export default Hotels;
