@@ -8,7 +8,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { Options } from "./Options";
 
-export const Search = () => {
+export const SearchHeader = () => {
   const navigate = useNavigate();
 
   const [openDate, setOpenDate] = useState(false);
