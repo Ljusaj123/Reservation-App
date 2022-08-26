@@ -7,7 +7,7 @@ export const Header = ({ type }) => {
 
   return (
     <header className={type === "list" ? "header list-mode" : "header"}>
-      <div className="container header-container">
+      <div className="header-container container ">
         <div className="navbar-container">
           <div className="logo-container">
             <h2>Reserve</h2>
