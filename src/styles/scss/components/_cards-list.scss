@@ -1,7 +1,6 @@
 @use "../base/" as *;
-.home-list {
-  display: flex;
-  justify-content: space-between;
+.cards-list {
+  @include universal-flex-display(space-between, initial);
   gap: 2em;
   flex-wrap: wrap;
 
@@ -33,17 +32,8 @@
     &-price {
       font-weight: $fw-normal;
     }
-
-    &-rating > button {
-      background-color: $blue;
-      color: $white;
-      border: none;
-      padding: 0.5em 0.7em;
-      margin-right: 1em;
-      font-weight: $fw-bold;
-    }
     &-rating > span {
-      font-size: clamp(0.9rem, calc(2.3vw + 0.3rem), 1.3rem);
+      margin-left: 0.7em;
     }
   }
 }
