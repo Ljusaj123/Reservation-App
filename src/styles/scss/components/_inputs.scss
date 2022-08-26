@@ -20,4 +20,14 @@ input {
 .input__search {
   line-height: 2;
   flex: 3;
+  padding: 0.3em;
+}
+
+.input__number {
+  max-width: 50px;
+  padding: 0.3em;
+}
+.input__price {
+  max-width: 80px;
+  padding: 0.3em;
 }
