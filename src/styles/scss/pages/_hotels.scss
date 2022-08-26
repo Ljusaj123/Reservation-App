@@ -9,8 +9,8 @@
 }
 
 .list-search {
-  flex: 1.2;
-  background-color: $blue;
+  flex: 1;
+  background-color: $medium-blue;
   padding: 3em 1em;
   border-radius: 10px;
   position: sticky;
@@ -50,20 +50,6 @@
       }
     }
   }
-  & > button {
-    padding: 1em;
-    background-color: $medium-purple;
-    border: none;
-    color: $white;
-    transition: all 0.3s ease;
-
-    &:active {
-      transform: scale(0.9);
-    }
-  }
-}
-.list-result {
-  flex: 2.8;
 }
 
 .option-item {
@@ -105,4 +91,3 @@
     }
   }
 }
-
