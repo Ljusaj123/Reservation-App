@@ -7,13 +7,9 @@
   &__list {
     display: flex;
 
-    .nav__item + .nav__item {
-      margin-left: 10px;
-    }
-
     .nav__item {
       padding: 0.5em 1em;
-      border: 0.1px solid transparent;
+      border: 1px solid transparent;
       border-radius: 25px;
       transition: all 0.2s ease;
 
@@ -23,9 +19,10 @@
       &:active {
         border-color: $black;
       }
-      .nav__link {
-        color: $white;
-      }
+    }
+
+    .nav__item + .nav__item {
+      margin-left: 10px;
     }
   }
 
@@ -43,7 +40,7 @@
     z-index: -1;
     @include universal-flex-display(flex-start, center);
     flex-direction: column;
-    background-color: rgb(4, 25, 44);
+    background-color: $medium-blue;
     width: 100vw;
     padding: 1em 0;
     transition: all 0.3s ease;
