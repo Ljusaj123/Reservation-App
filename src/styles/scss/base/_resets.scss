@@ -38,23 +38,17 @@ label {
 }
 a {
   text-decoration: none;
+  color: $white;
   font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
 }
-li {
+li,
+span {
   list-style: none;
-  font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.3rem);
+  font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.2rem);
 }
 
 img {
   max-width: 100%;
-}
-
-button {
-  border: 2px solid transparent;
-  color: $white;
-  font-size: $search-font-size;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .container {
