@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "./Navbar";
-import { Search } from "./Search";
+import { SearchHeader } from "./SearchHeader";
 
 export const Header = ({ type }) => {
   const [show, setShow] = useState(false);
@@ -31,7 +31,7 @@ export const Header = ({ type }) => {
               <h1>Find your next stay</h1>
               <h3>Search low prices on hotels, homes and much more...</h3>
             </div>
-            <Search />
+            <SearchHeader />
           </>
         )}
       </div>
