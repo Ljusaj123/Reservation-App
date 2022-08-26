@@ -11,9 +11,8 @@
   }
 
   &__intro {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    @include universal-flex-display(space-between, baseline);
+    gap: 3em;
 
     &-text {
       display: flex;
@@ -23,28 +22,21 @@
   }
 
   &__address > span {
-    font-size: $search-font-size;
     margin-left: 0.5em;
     font-weight: $fw_bold;
   }
-  &__address > svg {
-    font-size: $search-font-size;
-  }
 
   &__location {
-    color: $blue;
+    color: $medium-blue;
   }
 
   &__price-highlight {
     color: $green;
   }
 
-  //need to solve this image container
-
   &__images {
-    display: flex;
+    @include universal-flex-display(space-between, initial);
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 0.2em;
   }
 
@@ -66,8 +58,7 @@
   }
 
   &__details {
-    display: flex;
-    align-items: center;
+    @include universal-flex-display(initial, center);
     padding: 1em 0;
     margin: 2em 0;
     gap: 2em;
@@ -81,21 +72,9 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-    background-color: $blue;
+    background-color: $medium-blue;
     color: $white;
     border-radius: 10px;
-  }
-}
-
-.reserve-button {
-  border-radius: 5px;
-  background-color: $medium-purple;
-  padding: 0.7em 1em;
-  transform: all 0.3s ease;
-
-  &:active {
-    border-color: $light-purple;
-    transform: scale(0.9);
   }
 }
 
@@ -133,5 +112,17 @@
   .close-icon {
     top: 1%;
     right: 15%;
+  }
+}
+
+@include media-860 {
+  .hotel__details,
+  .hotel__intro {
+    flex-direction: column;
+    gap: 3em;
+
+    .button__reserve {
+      align-self: center;
+    }
   }
 }
