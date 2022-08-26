@@ -51,6 +51,24 @@ button {
   padding: 1em 1.3em;
   background-color: $light-blue__darker;
   &:hover {
-    background-color: $blue1;
+    background-color: $medium-blue__lighter;
   }
+}
+
+.button__options {
+  padding: 0.5em 0.7em;
+  background-color: $white;
+  border: 1px solid $light-purple;
+  color: $black;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.button__rating {
+  background-color: $medium-blue;
+  padding: 0.5em 0.7em;
+  cursor: default;
+  font-weight: $fw-bold;
 }
