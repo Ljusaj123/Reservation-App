@@ -1,6 +1,9 @@
 @use "../base/" as *;
-.search-item {
-  border: 1px solid $lightgrey;
+.result-list {
+  flex: 3;
+}
+.result-item {
+  border: 1px solid $lightgray;
   padding: 1em;
   border-radius: 5px;
   display: flex;
@@ -19,7 +22,7 @@
   }
 
   &__title {
-    color: $blue;
+    color: $medium-blue;
   }
 
   &__taxiOp {
@@ -56,13 +59,6 @@
     & > span {
       font-weight: $fw_bold;
     }
-    & > button {
-      background-color: $blue;
-      color: white;
-      padding: 0.3em;
-      font-weight: $fw_bold;
-      border: none;
-    }
   }
 
   &__detailTexts {
@@ -73,10 +69,10 @@
   }
 
   &__taxOp {
-    color: $lightgrey;
+    color: $lightgray;
   }
   &__checkButton {
-    background-color: $blue;
+    background-color: $medium-blue;
     color: $white;
     font-weight: $fw_bold;
     padding: 0.8em 0.5em;
