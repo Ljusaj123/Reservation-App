@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
-import { EmailList } from "../components/EmailList";
+import { Email } from "../components/Email";
 import { Footer } from "../components/Footer";
 import { GoLocation } from "react-icons/go";
 import { IoMdCloseCircle } from "react-icons/io";
@@ -73,7 +73,7 @@ function Hotel() {
 
           <div className="hotel__intro">
             <div className="hotel__intro-text">
-              <h1 className="hotel__titile">Tower Street apartments</h1>
+              <h1 className="hotel__title">Tower Street apartments</h1>
               <div className="hotel__address">
                 <GoLocation />
                 <span>Elton St 125 New york</span>
@@ -86,7 +86,7 @@ function Hotel() {
                 taxi
               </p>
             </div>
-            <button className="reserve-button">Reserve or Book Now!</button>
+            <button className="button__reserve">Reserve or Book Now!</button>
           </div>
 
           <div className="hotel__images">
@@ -128,12 +128,12 @@ function Hotel() {
               <h3>
                 <b>$945</b> (9 nights)
               </h3>
-              <button className="reserve-button">Reserve or Book Now!</button>
+              <button className="button__reserve">Reserve or Book Now!</button>
             </div>
           </div>
         </div>
       </div>
-      <EmailList />
+      <Email />
       <Footer />
     </>
   );
