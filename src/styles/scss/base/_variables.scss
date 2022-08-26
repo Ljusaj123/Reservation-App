@@ -11,14 +11,24 @@ $ff_Roboto: "Roboto", sans-serif;
 $ff_Playfair-Display: "Playfair Display", serif;
 
 //Colors
-$blue: rgb(36, 9, 97);
+
 $white: rgb(255, 255, 255);
 $black: rgb(1, 2, 10);
+$lightgray: rgb(145, 143, 145);
+
 $light-purple: rgb(110, 102, 194);
-$medium-purple: rgb(58, 50, 95);
-$lightgrey: rgb(145, 143, 145);
+$medium-purple: rgb(70, 62, 104);
+
+$green: rgb(3, 122, 29);
+
+$dark-blue: rgba(10, 13, 53, 0.959);
+$medium-blue: rgb(34, 7, 97);
+$medium-blue__lighter: rgb(51, 10, 148);
 $opacity-blue: rgba(66, 98, 128, 0.548);
-$green: #008009;
+$light-blue__darker: rgb(97, 127, 184);
+$light-blue: rgb(140, 175, 240);
 
 //font
-$search-font-size: clamp(0.9rem, calc(2vw + 0.3rem), 1.1rem);
+$input-font-size: clamp(0.9rem, calc(1.5vw + 0.3rem), 1.2rem);
+$button-font-size__smaller: clamp(1rem, calc(1.4vw + 0.3rem), 1.25rem);
+$button-font-size__larger: clamp(1.1rem, calc(1.5vw + 0.3rem), 1.4rem);
