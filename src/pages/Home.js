@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { RatingList } from "../components/RatingList";
 import { CardsList } from "../components/CardsList";
 import { cityList, propertyList, ratingList } from "../const/Lists";
-import { EmailList } from "../components/EmailList";
+import { Email } from "../components/Email";
 import { Footer } from "../components/Footer";
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
         <CardsList props={cityList} />
         <h2 className="home__title ">Browse by property type</h2>
         <CardsList props={propertyList} />
-        <EmailList />
+        <Email />
         <h2 className="home__title ">Home guests love</h2>
         <RatingList props={ratingList} />
       </main>

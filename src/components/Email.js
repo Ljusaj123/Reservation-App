@@ -1,6 +1,6 @@
 import React from "react";
 
-export const EmailList = () => {
+export const Email = () => {
   return (
     <div className="email">
       <div className="email-container container">
