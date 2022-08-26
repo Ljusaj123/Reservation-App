@@ -1,9 +1,9 @@
 import React from "react";
 import { ListCard } from "./cards/ListCard";
 
-export const HomeList = ({ props }) => {
+export const CardsList = ({ props }) => {
   return (
-    <div className="home-list">
+    <div className="cards-list">
       {props.map((item) => {
         return <ListCard props={item} />;
       })}
