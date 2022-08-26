@@ -1,0 +1,23 @@
+@use "../base/" as *;
+
+input {
+  outline: none;
+  border: none;
+  font-size: $input-font-size;
+
+  &::placeholder {
+    font-size: $input-font-size;
+  }
+}
+
+.input__email {
+  flex-grow: 1;
+  line-height: 1.5;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+
+.input__search {
+  line-height: 2;
+  flex: 3;
+}
