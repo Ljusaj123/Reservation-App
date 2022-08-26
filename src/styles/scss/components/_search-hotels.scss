@@ -12,7 +12,8 @@
   height: max-content;
   min-width: 300px;
 
-  &__title {
+  &__title,
+  & > label {
     color: $white;
   }
 
@@ -24,36 +25,16 @@
     & > span {
       padding: 0.6em;
       background-color: $white;
-      display: flex;
-      align-items: center;
+      @include universal-flex-display(initial, center);
       cursor: pointer;
-    }
-    & > label {
-      color: $white;
-    }
-    & > input {
-      border: none;
-      outline: none;
-      padding: 1em;
-
-      &::placeholder {
-        color: $black;
-      }
     }
   }
 }
 
 .option-item {
-  display: flex;
-  justify-content: space-between;
+  @include universal-flex-display(space-between, initial);
   margin-bottom: 1em;
   color: $white;
-
-  &__input {
-    max-width: 50px;
-    outline: none;
-    padding: 0.3em;
-  }
 }
 
 @include media-1200 {
@@ -61,7 +42,7 @@
     position: static;
     top: 2em;
     gap: 1.5em;
-    width: clamp(340px, 95vw, 700px);
+    width: clamp(300px, 95vw, 700px);
     margin: 0 auto;
 
     &__item {
