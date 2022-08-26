@@ -1,0 +1,22 @@
+@use "../base/" as *;
+.options {
+  position: absolute;
+  top: 100%;
+  background-color: $white;
+  color: $lightgray;
+  border-radius: 5px;
+  padding: 1em;
+  z-index: 2;
+
+  &__item {
+    @include universal-flex-display(space-between, initial);
+    min-width: 200px;
+    margin: 1em 0;
+    color: $black;
+
+    &-counter {
+      @include universal-flex-display(initial, center);
+      gap: 0.5em;
+    }
+  }
+}
