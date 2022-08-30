@@ -9,8 +9,7 @@ import { Footer } from "../components/Footer";
 function Home() {
   const cityUrl =
     "http://localhost:5000/api/v1/hotels/count/city?cities=Dublin,Berlin,Paris";
-  const propertyUrl =
-    "http://localhost:5000/api/v1/hotels/count/type?types=hotel,hostel,villa,resort,apartment";
+  const propertyUrl = "http://localhost:5000/api/v1/hotels/count/type";
   return (
     <div>
       <Header />
