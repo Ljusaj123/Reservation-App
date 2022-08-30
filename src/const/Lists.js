@@ -1,19 +1,15 @@
-export const cityList = [
-  {
-    name: "Dublin",
-    propNumber: "123",
-    imgURL: "/images/dublin.jpg",
-  },
-  {
-    name: "Berlin",
-    propNumber: "193",
-    imgURL: "/images/berlin.jpg",
-  },
-  {
-    name: "Paris",
-    propNumber: "453",
-    imgURL: "/images/paris.jpg",
-  },
+export const cityImageList = [
+  "/images/dublin.jpg",
+  "/images/berlin.jpg",
+  "/images/paris.jpg",
+];
+
+export const propertyImageList = [
+  "/images/hotel.jpg",
+  "/images/motel.jpg",
+  "/images/resort.jpg",
+  "/images/villa.jpg",
+  "/images/apartment.jpg",
 ];
 
 export const propertyList = [
