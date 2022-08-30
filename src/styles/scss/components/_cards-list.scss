@@ -13,6 +13,9 @@
     flex-basis: 350px;
     flex-direction: column;
     gap: 0.5em;
+    &-titles > h3 {
+      text-transform: capitalize;
+    }
 
     &-img {
       width: 100%;
