@@ -1,14 +1,14 @@
 import React from "react";
-import { Header } from "../components/Header";
-import { RatingList } from "../components/RatingList";
-import { CardsList } from "../components/CardsList";
+import { Header } from "../components/modules/Header";
+import { Email } from "../components/modules/Email";
+import { Footer } from "../components/modules/Footer";
+import { RatingList } from "../components/lists/RatingList";
+import { CardsList } from "../components/lists/CardsList";
 import { cityImageList, propertyImageList } from "../const/Lists";
-import { Email } from "../components/Email";
-import { Footer } from "../components/Footer";
 
 function Home() {
   const cityUrl =
-    "http://localhost:5000/api/v1/hotels/count/city?cities=dublin,berlin,paris";
+    "http://localhost:5000/api/v1/hotels/count/city?cities=split,solin,zadar";
   const propertyUrl = "http://localhost:5000/api/v1/hotels/count/type";
   const ratingUrl =
     "http://localhost:5000/api/v1/hotels?featured=true&limit=4&max=400";

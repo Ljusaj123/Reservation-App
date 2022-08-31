@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
+import { Header } from "../components/modules/Header";
 import { useState } from "react";
-import { ResultList } from "../components/ResultList";
+import { ResultList } from "../components/lists/ResultList";
 import { SearchHotels } from "../components/SearchHotels";
 import { useLocation } from "react-router-dom";
 
