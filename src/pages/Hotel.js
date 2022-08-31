@@ -17,7 +17,7 @@ function Hotel() {
   const [open, setOpen] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
   const { data, error, loading } = useFetch(
-    `http://localhost:5000/api/v1/hotels/${id}`
+    `http://localhost:5500/api/v1/hotels/${id}`
   );
 
   const handleSlider = (i) => {
@@ -96,17 +96,18 @@ function Hotel() {
           </div>
 
           <div className="hotel__images">
-            {data?.photos.map((photo, index) => {
-              return (
-                <div
-                  className="hotel__image"
-                  key={index}
-                  onClick={() => handleSlider(index)}
-                >
-                  <img src={photo} alt="" />
-                </div>
-              );
-            })}
+            {data.photos &&
+              data.photos.map((photo, index) => {
+                return (
+                  <div
+                    className="hotel__image"
+                    key={index}
+                    onClick={() => handleSlider(index)}
+                  >
+                    <img src={photo} alt="" />
+                  </div>
+                );
+              })}
           </div>
           <div className="hotel__details">
             <div className="hotel__text">
