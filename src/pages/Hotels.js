@@ -8,9 +8,11 @@ import SearchHotelsContext from "../context/SearchHotelsContext";
 function Hotels() {
   const location = useLocation();
   const [destination, setDestination] = useState(
-    location.state.destination && "Split"
+    location.state.destination || "Split"
   );
-  const [options, setOptions] = useState(location.state.options);
+  const [options, setOptions] = useState(
+    location.state.options || { adult: 1, children: 0, room: 1 }
+  );
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [min, setMin] = useState(undefined);
