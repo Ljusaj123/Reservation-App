@@ -1,6 +1,6 @@
 import React from "react";
-import { ResultCard } from "./cards/ResultCard";
-import useFetch from "../hooks/useFetch";
+import { ResultCard } from "../cards/ResultCard";
+import useFetch from "../../hooks/useFetch";
 
 export const ResultList = ({ destination, options, date, url }) => {
   const { data, error, loading } = useFetch(

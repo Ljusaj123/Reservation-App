@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Navbar } from "./Navbar";
-import { SearchHeader } from "./SearchHeader";
+import { Navbar } from "../Navbar";
+import { SearchHeader } from "../SearchHeader";
 import { Link } from "react-router-dom";
 
 export const Header = ({ type }) => {

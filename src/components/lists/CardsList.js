@@ -1,6 +1,6 @@
 import React from "react";
-import useFetch from "../hooks/useFetch";
-import { ListCard } from "./cards/ListCard";
+import useFetch from "../../hooks/useFetch";
+import { ListCard } from "../cards/ListCard";
 
 export const CardsList = ({ images, url }) => {
   const { data, error, loading } = useFetch(url);
