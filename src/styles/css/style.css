@@ -46,6 +46,7 @@ a {
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: clamp(0.9rem, 1.3vw + 0.3rem, 1.3rem);
+  cursor: pointer;
 }
 
 li,
@@ -300,20 +301,20 @@ img {
   display: -ms-flexbox;
   display: flex;
 }
-.nav__list .nav__item {
+.nav__item {
   padding: 0.5em 1em;
   border: 1px solid transparent;
   border-radius: 25px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.nav__list .nav__item:hover {
+.nav__item:hover {
   background-color: rgba(66, 98, 128, 0.548);
 }
-.nav__list .nav__item:active {
+.nav__item:active {
   border-color: rgb(1, 2, 10);
 }
-.nav__list .nav__item + .nav__item {
+.nav__item + .nav__item {
   margin-left: 10px;
 }
 .nav .login-register {
@@ -367,7 +368,7 @@ img {
             flex-direction: column;
     margin-bottom: 2em;
   }
-  .nav__list .nav__item + .nav__item {
+  .nav__item + .nav__item {
     margin-top: 2em;
     margin-left: 0;
   }
@@ -512,7 +513,7 @@ img {
   gap: 0.5em;
 }
 .header-search__item-icon, .header-search__item-text {
-  color: rgb(145, 143, 145);
+  color: rgb(1, 2, 10);
 }
 .header-search__item-text {
   cursor: pointer;
@@ -767,18 +768,48 @@ input {
 }
 input::-webkit-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
+  color: rgb(1, 2, 10);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 input::-moz-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
+  color: rgb(1, 2, 10);
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 input:-ms-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
+  color: rgb(1, 2, 10);
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 input::-ms-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
+  color: rgb(1, 2, 10);
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 input::placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
+  color: rgb(1, 2, 10);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+input:focus::-webkit-input-placeholder {
+  opacity: 0.2;
+}
+input:focus::-moz-placeholder {
+  opacity: 0.2;
+}
+input:focus:-ms-input-placeholder {
+  opacity: 0.2;
+}
+input:focus::-ms-input-placeholder {
+  opacity: 0.2;
+}
+input:focus::placeholder {
+  opacity: 0.2;
 }
 
 .input__email {
@@ -907,6 +938,9 @@ input::placeholder {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+}
+.result-list > h3 {
+  text-align: center;
 }
 
 .result-item {
