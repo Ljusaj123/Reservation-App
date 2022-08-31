@@ -4,7 +4,6 @@ import { RatingCard } from "../cards/RatingCard";
 
 export const RatingList = ({ url }) => {
   const { data, error, loading } = useFetch(url);
-  console.log(data);
   if (loading) {
     return (
       <>
