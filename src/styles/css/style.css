@@ -876,6 +876,9 @@ input::placeholder {
           flex-direction: column;
   gap: 0.5em;
 }
+.cards-list__item-titles > h3 {
+  text-transform: capitalize;
+}
 .cards-list__item-img {
   width: 100%;
   -o-object-fit: cover;
