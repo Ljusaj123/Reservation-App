@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
+import SearchContext from "../context/SearchHotelsContext";
 
-export const SearchHotels = ({
-  destination,
-  options,
-  date,
-  setDate,
-  openDate,
-  setOpenDate,
-  setMin,
-  setMax,
-  setUrl,
-  min,
-  max,
-}) => {
+export const SearchHotels = () => {
+  const {
+    destination,
+    options,
+    date,
+    setDate,
+    openDate,
+    setOpenDate,
+    setMin,
+    setMax,
+    setUrl,
+    min,
+    max,
+    setDestination,
+  } = useContext(SearchContext);
+
   return (
     <div className="hotels-search">
       <h3 className="hotels-search__title">Search</h3>
@@ -24,6 +28,7 @@ export const SearchHotels = ({
           type="text"
           placeholder={destination}
           className="input__search"
+          onChange={(e) => setDestination(e.target.value)}
         />
       </div>
       <div className="hotels-search__item">
@@ -47,13 +52,23 @@ export const SearchHotels = ({
           <span className="option-item__text">
             Min price<small> per night</small>
           </span>
-          <input type="number" className="input__price" />
+          <input
+            type="number"
+            className="input__price"
+            placeholder="0"
+            onChange={(e) => setMin(e.target.value)}
+          />
         </div>
         <div className="option-item">
           <span className="option-item__text">
             Max price<small> per night</small>
           </span>
-          <input type="number" className="input__price" />
+          <input
+            type="number"
+            placeholder="999"
+            className="input__price"
+            onChange={(e) => setMax(e.target.value)}
+          />
         </div>
         <div className="option-item">
           <span className="option-item__text">Adult</span>
@@ -83,7 +98,18 @@ export const SearchHotels = ({
           />
         </div>
       </div>
-      <button className="button__search">Search</button>
+      <button
+        className="button__search"
+        onClick={() =>
+          setUrl(
+            `http://localhost:5500/api/v1/hotels?city=${destination}&min=${
+              min || 0
+            }&max=${max || 999}`
+          )
+        }
+      >
+        Search
+      </button>
     </div>
   );
 };

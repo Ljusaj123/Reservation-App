@@ -1,32 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FaBed, FaCalendarAlt } from "react-icons/fa";
 import { GoPerson } from "react-icons/go";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+
 import { Options } from "./Options";
+import SearchHeaderContext from "../context/SearchHeaderContext";
 
 export const SearchHeader = () => {
-  const navigate = useNavigate();
-
-  const [openDate, setOpenDate] = useState(false);
-  const [openOptions, setOpenOptions] = useState(false);
-  const [destination, setDestination] = useState("");
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
+  const {
+    date,
+    options,
+    setOptions,
+    setDestination,
+    openDate,
+    setOpenDate,
+    setDate,
+    openOptions,
+    setOpenOptions,
+    handleSearch,
+  } = useContext(SearchHeaderContext);
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -37,10 +32,6 @@ export const SearchHeader = () => {
     });
   };
 
-  const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
-  };
-
   return (
     <div className="header-search">
       <div className="header-search__item">
@@ -48,7 +39,7 @@ export const SearchHeader = () => {
         <input
           type="text"
           placeholder="Where are you going?"
-          className="header-search__item-input input__search"
+          className="input__search"
           onChange={(e) => setDestination(e.target.value)}
         />
       </div>
