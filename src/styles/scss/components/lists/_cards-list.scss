@@ -1,4 +1,4 @@
-@use "../base/" as *;
+@use "../../base/" as *;
 .cards-list {
   @include universal-flex-display(space-between, initial);
   gap: 2em;
