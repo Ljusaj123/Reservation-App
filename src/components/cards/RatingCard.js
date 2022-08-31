@@ -1,7 +1,7 @@
 import React from "react";
 
 export const RatingCard = ({ props }) => {
-  const { name, photos, cheapestPrice, city, rating, grade } = props;
+  const { name, photos, cheapestPrice, city, rating } = props;
   return (
     <div className="cards-list__item">
       <img src={photos[0]} alt={name} className="cards-list__item-img" />
@@ -11,7 +11,6 @@ export const RatingCard = ({ props }) => {
       {rating && (
         <div className="cards-list__item-rating">
           <button className="button__rating">{rating}</button>
-          <span>{grade}</span>
         </div>
       )}
     </div>
