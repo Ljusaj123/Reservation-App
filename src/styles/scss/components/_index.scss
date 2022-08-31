@@ -1,11 +1,11 @@
 @forward "./navbar";
-@forward "./header";
+@forward "./modules/header";
 @forward "./search-header";
 @forward "./search-hotels";
-@forward "./email";
-@forward "./footer";
+@forward "./modules/email";
+@forward "./modules/footer";
 @forward "./buttons";
 @forward "./inputs";
 @forward "./options";
-@forward "./cards-list";
-@forward "./result-list";
+@forward "./lists/cards-list";
+@forward "./lists/result-list";
