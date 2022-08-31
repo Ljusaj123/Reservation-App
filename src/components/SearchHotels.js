@@ -1,16 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 
-export const SearchHotels = () => {
-  const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
-  const [options, setOptions] = useState(location.state.options);
-  const [openDate, setOpenDate] = useState(false);
-
+export const SearchHotels = ({
+  destination,
+  options,
+  date,
+  setDate,
+  openDate,
+  setOpenDate,
+  setMin,
+  setMax,
+  setUrl,
+  min,
+  max,
+}) => {
   return (
     <div className="hotels-search">
       <h3 className="hotels-search__title">Search</h3>
