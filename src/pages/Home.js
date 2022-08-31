@@ -8,10 +8,10 @@ import { cityImageList, propertyImageList } from "../const/Lists";
 
 function Home() {
   const cityUrl =
-    "http://localhost:5000/api/v1/hotels/count/city?cities=split,solin,zadar";
-  const propertyUrl = "http://localhost:5000/api/v1/hotels/count/type";
+    "http://localhost:5500/api/v1/hotels/count/city?cities=Split,Solin,Zadar";
+  const propertyUrl = "http://localhost:5500/api/v1/hotels/count/type";
   const ratingUrl =
-    "http://localhost:5000/api/v1/hotels?featured=true&limit=4&max=400";
+    "http://localhost:5500/api/v1/hotels?featured=true&limit=4&max=400";
   return (
     <div>
       <Header />
