@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ResultCard } from "../cards/ResultCard";
 import useFetch from "../../hooks/useFetch";
+import SearchContext from "../../context/SearchHotelsContext";
 
-export const ResultList = ({ destination, options, date, url }) => {
-  const { data, error, loading } = useFetch(
-    `http://localhost:5000/api/v1/hotels?city=${destination}`
-  );
+export const ResultList = () => {
+  const { url } = useContext(SearchContext);
+  const { data, error, loading } = useFetch(url);
   if (loading) {
     return (
       <>
@@ -23,9 +23,13 @@ export const ResultList = ({ destination, options, date, url }) => {
 
   return (
     <div className="result-list">
-      {data.map((item) => {
-        return <ResultCard props={item} key={item._id} />;
-      })}
+      {data.length !== 0 ? (
+        data.map((item) => {
+          return <ResultCard props={item} key={item._id} />;
+        })
+      ) : (
+        <h3>There are no properties for inserted data.</h3>
+      )}
     </div>
   );
 };
