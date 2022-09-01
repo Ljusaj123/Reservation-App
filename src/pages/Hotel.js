@@ -13,6 +13,10 @@ import useFetch from "../hooks/useFetch";
 
 function Hotel() {
   const location = useLocation();
+  const [options, setOptions] = useState(
+    location.state.options || { adult: 1, children: 0, room: 1 }
+  );
+  const [date, setDate] = useState(location.state.date);
   const id = location.pathname.split("/")[2];
   const [open, setOpen] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
@@ -35,6 +39,15 @@ function Hotel() {
 
     setSlideNumber(newSlideNumber);
   };
+
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
+
+  const days = dayDifference(date[0].endDate, date[0].startDate);
 
   if (loading) {
     return (
@@ -115,13 +128,14 @@ function Hotel() {
               <p className="hotel__desc">{data.desc}</p>
             </div>
             <div className="hotel__details-price">
-              <h3>Perfect for a 9-night stay!</h3>
+              <h3>Perfect for a {days}-night stay!</h3>
               <p>
                 Located in the real heart of Krakow, this property has an
                 excellent location score of 9.8!
               </p>
               <h3>
-                <b>$945</b> (9 nights)
+                <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                nights)
               </h3>
               <button className="button__reserve">Reserve or Book Now!</button>
             </div>

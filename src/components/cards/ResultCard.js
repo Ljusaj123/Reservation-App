@@ -1,8 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export const ResultCard = ({ props }) => {
+export const ResultCard = ({ props, date, options }) => {
+  const navigate = useNavigate();
+
   const { _id, name, photos, cheapestPrice, rating, distance, desc } = props;
+
+  const handleSearch = () => {
+    navigate(`${_id}`, { state: { date, options } });
+  };
 
   return (
     <div className="result-item">
@@ -30,9 +35,13 @@ export const ResultCard = ({ props }) => {
         <div className="result-item__detailTexts">
           <h3 className="result-item__price">{cheapestPrice}$</h3>
           <span className="result-item__taxOp">Includes taxes and fees</span>
-          <Link to={`${_id}`}>
-            <button className="button__availability">See availability</button>
-          </Link>
+
+          <button
+            className="button__availability"
+            onClick={() => handleSearch()}
+          >
+            See availability
+          </button>
         </div>
       </div>
     </div>
