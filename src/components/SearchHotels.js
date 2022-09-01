@@ -39,7 +39,9 @@ export const SearchHotels = () => {
         )} to ${format(date[0].endDate, "dd/MM/yyyy")} `}</span>
         {openDate && (
           <DateRange
+            editableDateInputs={true}
             onChange={(item) => setDate([item.selection])}
+            moveRangeOnFirstSelection={false}
             minDate={new Date()}
             ranges={date}
             className="date"
