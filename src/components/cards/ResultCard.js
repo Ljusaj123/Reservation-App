@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-export const ResultCard = ({ props, date, options }) => {
+export const ResultCard = ({ props }) => {
   const navigate = useNavigate();
 
   const { _id, name, photos, cheapestPrice, rating, distance, desc } = props;
 
   const handleSearch = () => {
-    navigate(`${_id}`, { state: { date, options } });
+    navigate(`${_id}`, { state: {} });
   };
 
   return (
