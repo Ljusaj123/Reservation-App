@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
-import SearchHeaderContext from "../context/SearchHeaderContext";
-
+import { useNavigate } from "react-router-dom";
 export const Navbar = ({ props }) => {
-  const { handleSearch } = useContext(SearchHeaderContext);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination: "" } });
+  };
   return (
     <nav className={props ? "nav show" : "nav"}>
       <ul className="nav__list">
