@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
+
 import { Header } from "../components/modules/Header";
 import { Email } from "../components/modules/Email";
 import { Footer } from "../components/modules/Footer";
+import { SearchContext } from "../context/SearchContext";
+
 import { GoLocation } from "react-icons/go";
 import { IoMdCloseCircle } from "react-icons/io";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { useLocation } from "react-router-dom";
+
 import useFetch from "../hooks/useFetch";
 
 function Hotel() {
+  const { date, options } = useContext(SearchContext);
+
   const location = useLocation();
-  const [options, setOptions] = useState(
-    location.state.options || { adult: 1, children: 0, room: 1 }
-  );
-  const [date, setDate] = useState(location.state.date);
   const id = location.pathname.split("/")[2];
   const [open, setOpen] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
+
   const { data, error, loading } = useFetch(
     `http://localhost:5500/api/v1/hotels/${id}`
   );
@@ -30,24 +33,29 @@ function Hotel() {
   };
 
   const handleMove = (move) => {
+    const numberOfPhotos = data.photos.length - 1;
     let newSlideNumber;
     if (move === "l") {
-      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
+      newSlideNumber = slideNumber === 0 ? numberOfPhotos : slideNumber - 1;
     } else {
-      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
+      newSlideNumber = slideNumber === numberOfPhotos ? 0 : slideNumber + 1;
     }
 
     setSlideNumber(newSlideNumber);
   };
 
-  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-  function dayDifference(date1, date2) {
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  let days = 0;
+
+  const countDays = () => {
+    const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    const timeDiff = Math.abs(
+      date[0].startDate.getTime() - date[0].endDate.getTime()
+    );
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
-  }
+  };
 
-  const days = dayDifference(date[0].endDate, date[0].startDate);
+  days = countDays();
 
   if (loading) {
     return (
@@ -95,7 +103,9 @@ function Hotel() {
               <h1 className="hotel__title">{data.name}</h1>
               <div className="hotel__address">
                 <GoLocation />
-                <span>{data.address}</span>
+                <span>
+                  {data.address}, {data.city}
+                </span>
               </div>
               <p className="hotel__location">
                 Excellent location, {data.distance}m from center
@@ -127,18 +137,24 @@ function Hotel() {
               <h2 className="hotel__text-title">{data.title}</h2>
               <p className="hotel__desc">{data.desc}</p>
             </div>
-            <div className="hotel__details-price">
-              <h3>Perfect for a {days}-night stay!</h3>
-              <p>
-                Located in the real heart of Krakow, this property has an
-                excellent location score of 9.8!
-              </p>
-              <h3>
-                <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                nights)
-              </h3>
-              <button className="button__reserve">Reserve or Book Now!</button>
-            </div>
+            {days ? (
+              <div className="hotel__details-price">
+                <h3>Perfect for a {days}-night stay!</h3>
+                <p>
+                  Located in the real heart of Krakow, this property has an
+                  excellent location score of 9.8!
+                </p>
+                <h3>
+                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  nights)
+                </h3>
+                <button className="button__reserve">
+                  Reserve or Book Now!
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
