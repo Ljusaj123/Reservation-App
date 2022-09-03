@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
 import { ResultCard } from "../cards/ResultCard";
 import useFetch from "../../hooks/useFetch";
-import SearchHotelsContext from "../../context/SearchHotelsContext";
 
-export const ResultList = () => {
-  const { url, destination, date, options } = useContext(SearchHotelsContext);
+export const ResultList = ({ url }) => {
   const { data, error, loading } = useFetch(url);
 
   if (loading) {
@@ -26,15 +23,7 @@ export const ResultList = () => {
     <div className="result-list">
       {data.length !== 0 ? (
         data.map((item) => {
-          return (
-            <ResultCard
-              props={item}
-              key={item._id}
-              destination={destination}
-              date={date}
-              options={options}
-            />
-          );
+          return <ResultCard props={item} key={item._id} />;
         })
       ) : (
         <h3>There are no properties for inserted data.</h3>
