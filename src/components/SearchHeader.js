@@ -1,35 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaBed, FaCalendarAlt } from "react-icons/fa";
 import { GoPerson } from "react-icons/go";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
-
+import { useNavigate } from "react-router-dom";
 import { Options } from "./Options";
-import SearchHeaderContext from "../context/SearchHeaderContext";
+import { SearchContext } from "../context/SearchContext";
 
 export const SearchHeader = () => {
-  const {
-    date,
-    options,
-    setOptions,
-    setDestination,
-    openDate,
-    setOpenDate,
-    setDate,
-    openOptions,
-    setOpenOptions,
-    handleSearch,
-  } = useContext(SearchHeaderContext);
+  const navigate = useNavigate();
 
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
-      return {
-        ...prev,
-        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-      };
-    });
+  const { dispatch } = useContext(SearchContext);
+
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(new Date().valueOf() + 1000 * 3600 * 24),
+      key: "selection",
+    },
+  ]);
+
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+
+  const [openDate, setOpenDate] = useState(false);
+  const [openOptions, setOpenOptions] = useState(false);
+
+  const handleSearch = () => {
+    dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
+    navigate("/hotels", { state: { destination, date, options } });
   };
 
   return (
@@ -71,9 +76,7 @@ export const SearchHeader = () => {
         >
           {`${options.adult} adult ${options.children} children ${options.room} room`}
         </span>
-        {openOptions && (
-          <Options options={options} handleOption={handleOption} />
-        )}
+        {openOptions && <Options options={options} setOptions={setOptions} />}
       </div>
       <div className="header-search__item header-search__button">
         <button className="button__search" onClick={handleSearch}>
