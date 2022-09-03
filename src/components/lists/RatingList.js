@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { RatingCard } from "../cards/RatingCard";
 
-export const RatingList = ({ url }) => {
+export const RatingList = ({ url, destination }) => {
   const { data, error, loading } = useFetch(url);
   if (loading) {
     return (
@@ -14,7 +14,6 @@ export const RatingList = ({ url }) => {
   if (error.isError) {
     return (
       <>
-        {console.log(error)}
         <p>{error.message}</p>
       </>
     );
@@ -23,7 +22,9 @@ export const RatingList = ({ url }) => {
   return (
     <div className="cards-list">
       {data.map((item, index) => {
-        return <RatingCard props={item} key={index} />;
+        return (
+          <RatingCard props={item} key={index} destination={destination} />
+        );
       })}
     </div>
   );
