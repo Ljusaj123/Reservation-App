@@ -3,7 +3,7 @@ export const Navbar = ({ props }) => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination: "" } });
+    navigate("/hotels", { state: {} });
   };
   return (
     <nav className={props ? "nav show" : "nav"}>
