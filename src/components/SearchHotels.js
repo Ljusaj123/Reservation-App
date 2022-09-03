@@ -1,23 +1,31 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
-import SearchContext from "../context/SearchHotelsContext";
+import { useLocation } from "react-router-dom";
 
-export const SearchHotels = () => {
-  const {
-    destination,
-    options,
-    date,
-    setDate,
-    openDate,
-    setOpenDate,
-    setMin,
-    setMax,
-    setUrl,
-    min,
-    max,
-    setDestination,
-  } = useContext(SearchContext);
+export const SearchHotels = ({ setUrl, setDestination, destination }) => {
+  const location = useLocation();
+
+  const [date, setDate] = useState(
+    location.state.date || [
+      {
+        startDate: new Date(),
+        endDate: new Date(new Date().valueOf() + 1000 * 3600 * 24),
+        key: "selection",
+      },
+    ]
+  );
+  const [options, setOptions] = useState(
+    location.state.options || {
+      adult: 1,
+      children: 0,
+      room: 1,
+    }
+  );
+
+  const [openDate, setOpenDate] = useState(false);
+  const [min, setMin] = useState(undefined);
+  const [max, setMax] = useState(undefined);
 
   return (
     <div className="hotels-search">
