@@ -3,20 +3,13 @@ import { useState } from "react";
 import { ResultList } from "../components/lists/ResultList";
 import { SearchHotels } from "../components/SearchHotels";
 import { useLocation } from "react-router-dom";
-import SearchHotelsContext from "../context/SearchHotelsContext";
 
 function Hotels() {
   const location = useLocation();
+  console.log(location.state.destination || "");
   const [destination, setDestination] = useState(
-    location.state.destination || "Split"
+    location.state.destination || ""
   );
-  const [options, setOptions] = useState(
-    location.state.options || { adult: 1, children: 0, room: 1 }
-  );
-  const [date, setDate] = useState(location.state.date);
-  const [openDate, setOpenDate] = useState(false);
-  const [min, setMin] = useState(undefined);
-  const [max, setMax] = useState(undefined);
   const [url, setUrl] = useState(
     `http://localhost:5500/api/v1/hotels?city=${destination}`
   );
@@ -26,26 +19,12 @@ function Hotels() {
       <Header type="list" />
       <div className="hotels-container container">
         <div className="hotels-wrapper">
-          <SearchHotelsContext.Provider
-            value={{
-              destination,
-              options,
-              date,
-              setDate,
-              openDate,
-              min,
-              max,
-              setMin,
-              setMax,
-              setOpenDate,
-              url,
-              setUrl,
-              setDestination,
-            }}
-          >
-            <SearchHotels />
-            <ResultList />
-          </SearchHotelsContext.Provider>
+          <SearchHotels
+            destination={destination}
+            setDestination={setDestination}
+            setUrl={setUrl}
+          />
+          <ResultList url={url} destination={destination} />
         </div>
       </div>
     </div>
