@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const RatingCard = ({ props }) => {
+  const navigate = useNavigate();
+  const handleSearch = () => {
+    navigate(`/hotels/${_id}`, { state: {} });
+  };
   const { name, photos, cheapestPrice, city, rating, _id } = props;
   return (
     <div className="cards-list__item">
-      <Link to={`/hotels/${_id}`}>
-        <img src={photos[0]} alt={name} className="cards-list__item-img" />
-      </Link>
+      <img
+        src={photos[0]}
+        alt={name}
+        className="cards-list__item-img"
+        onClick={() => handleSearch()}
+      />
       <h3 className="cards-list__item-name">{name}</h3>
       <p className="cards-list__item-city">{city}</p>
       <p className="cards-list__item-price">Starting from {cheapestPrice}$</p>
