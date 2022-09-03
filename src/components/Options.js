@@ -1,7 +1,14 @@
 import React from "react";
 
-export const Options = ({ options, handleOption }) => {
-  console.log(options);
+export const Options = ({ options, setOptions }) => {
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
+  };
   return (
     <div className="options">
       <div className="options__item">
