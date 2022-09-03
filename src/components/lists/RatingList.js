@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { RatingCard } from "../cards/RatingCard";
 
-export const RatingList = ({ url, destination }) => {
+export const RatingList = ({ url }) => {
   const { data, error, loading } = useFetch(url);
   if (loading) {
     return (
@@ -22,9 +22,7 @@ export const RatingList = ({ url, destination }) => {
   return (
     <div className="cards-list">
       {data.map((item, index) => {
-        return (
-          <RatingCard props={item} key={index} destination={destination} />
-        );
+        return <RatingCard props={item} key={index} />;
       })}
     </div>
   );
