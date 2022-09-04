@@ -7,7 +7,7 @@ input {
 
   &::placeholder {
     font-size: $input-font-size;
-    color: $black;
+    color: $opacity-black;
     transition: all 0.5s ease;
   }
   &:focus::placeholder {
