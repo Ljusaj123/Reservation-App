@@ -14,10 +14,10 @@ function Home() {
     "http://localhost:5500/api/v1/hotels?featured=true&limit=4&max=400";
   return (
     <div>
-      <Header />
+      <Header type="homepage" />
       <main className="home-container container">
         <h2 className="home__title">Browse by city</h2>
-        <CardsList images={cityImageList} url={cityUrl} />
+        <CardsList images={cityImageList} url={cityUrl} type="cities" />
         <h2 className="home__title ">Browse by property type</h2>
         <CardsList images={propertyImageList} url={propertyUrl} />
         <Email />
