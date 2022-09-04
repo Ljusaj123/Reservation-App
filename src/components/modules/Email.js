@@ -9,7 +9,7 @@ export const Email = () => {
         <div className="email__input-container">
           <input
             type="email"
-            placeholder="Enter email"
+            placeholder="email@gmail.com"
             className="input__email"
           />
           <button className="button__subscribe">Subscribe</button>
