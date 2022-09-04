@@ -34,8 +34,9 @@ export const SearchHotels = ({ setUrl, setDestination, destination }) => {
         <label>Destination</label>
         <input
           type="text"
-          placeholder={destination}
+          placeholder="Your destination..."
           className="input__search"
+          value={destination}
           onChange={(e) => setDestination(e.target.value)}
         />
       </div>
