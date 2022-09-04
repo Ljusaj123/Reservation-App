@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Hotel from "./pages/Hotel";
 import Hotels from "./pages/Hotels";
 import "./styles/css/style.css";
+import Login from "./pages/Login";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/hotels" element={<Hotels />} />
               <Route path="/hotels/:id" element={<Hotel />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </BrowserRouter>
         </SearchContextProvider>
