@@ -7,11 +7,11 @@ import { SearchHeader } from "../SearchHeader";
 export const Header = ({ type }) => {
   const [show, setShow] = useState(false);
   return (
-    <header className={type === "list" ? "header list-mode" : "header"}>
+    <header className={type !== "homepage" ? "header homepage-mode" : "header"}>
       <div className="header-container container ">
         <div className="navbar-container">
           <div className="logo-container">
-            <Link to="/" style={{ color: "inherit" }}>
+            <Link to="/">
               <h2>Reserve</h2>
             </Link>
           </div>
@@ -28,7 +28,7 @@ export const Header = ({ type }) => {
             ></div>
           </div>
         </div>
-        {type !== "list" && (
+        {type === "homepage" && (
           <>
             <div className="header_text">
               <h1>Find your next stay</h1>
