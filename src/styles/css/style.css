@@ -282,6 +282,36 @@ img {
         align-self: center;
   }
 }
+.login {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lContainer {
+  width: 20vw;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+}
+.lContainer > span {
+  color: black;
+}
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -300,6 +330,11 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.nav .username {
+  border-radius: 15px;
+  padding: 0.5em;
+  border: 3px solid white;
 }
 .nav__item {
   padding: 0.5em 1em;
@@ -381,7 +416,7 @@ img {
   color: rgb(255, 255, 255);
   padding-bottom: 2em;
 }
-.header.list-mode {
+.header.homepage-mode {
   height: 15vh;
 }
 .header-container {
@@ -768,31 +803,31 @@ input {
 }
 input::-webkit-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
-  color: rgb(1, 2, 10);
+  color: rgba(1, 2, 10, 0.7);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 input::-moz-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
-  color: rgb(1, 2, 10);
+  color: rgba(1, 2, 10, 0.7);
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 input:-ms-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
-  color: rgb(1, 2, 10);
+  color: rgba(1, 2, 10, 0.7);
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 input::-ms-input-placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
-  color: rgb(1, 2, 10);
+  color: rgba(1, 2, 10, 0.7);
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 input::placeholder {
   font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.2rem);
-  color: rgb(1, 2, 10);
+  color: rgba(1, 2, 10, 0.7);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
