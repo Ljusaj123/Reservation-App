@@ -20,12 +20,15 @@ function Hotel() {
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const [open, setOpen] = useState(false);
-  const [slideNumber, setSlideNumber] = useState(0);
 
   const { data, error, loading } = useFetch(
     `http://localhost:5500/api/v1/hotels/${id}`
   );
+
+  const { photos, city, address, distance, cheapestPrice, title, desc, name } =
+    data;
+  const [open, setOpen] = useState(false);
+  const [slideNumber, setSlideNumber] = useState(0);
 
   const handleSlider = (i) => {
     setOpen(true);
@@ -33,18 +36,17 @@ function Hotel() {
   };
 
   const handleMove = (move) => {
-    const numberOfPhotos = data.photos.length - 1;
+    const numberOfPhotos = photos.length - 1;
     let newSlideNumber;
     if (move === "l") {
       newSlideNumber = slideNumber === 0 ? numberOfPhotos : slideNumber - 1;
-    } else {
+    }
+    if (move === "d") {
       newSlideNumber = slideNumber === numberOfPhotos ? 0 : slideNumber + 1;
     }
 
     setSlideNumber(newSlideNumber);
   };
-
-  let days = 0;
 
   const countDays = () => {
     const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
@@ -55,7 +57,7 @@ function Hotel() {
     return diffDays;
   };
 
-  days = countDays();
+  let days = countDays();
 
   if (loading) {
     return (
@@ -90,37 +92,33 @@ function Hotel() {
                 onClick={() => setOpen(false)}
                 className="close-icon"
               />
-              <img
-                src={data.photos[slideNumber]}
-                alt=""
-                className="sliderImg"
-              />
+              <img src={photos[slideNumber]} alt="" className="sliderImg" />
             </div>
           )}
 
           <div className="hotel__intro">
             <div className="hotel__intro-text">
-              <h1 className="hotel__title">{data.name}</h1>
+              <h1 className="hotel__title">{name}</h1>
               <div className="hotel__address">
                 <GoLocation />
                 <span>
-                  {data.address}, {data.city}
+                  {address}, {city}
                 </span>
               </div>
               <p className="hotel__location">
-                Excellent location, {data.distance}m from center
+                Excellent location, {distance}m from center
               </p>
               <p className="hotel__price-highlight">
-                Book a stay over ${data.cheapestPrice} at this property and get
-                a free airport taxi
+                Book a stay over ${cheapestPrice} at this property and get a
+                free airport taxi
               </p>
             </div>
             <button className="button__reserve">Reserve or Book Now!</button>
           </div>
 
           <div className="hotel__images">
-            {data.photos &&
-              data.photos.map((photo, index) => {
+            {photos &&
+              photos.map((photo, index) => {
                 return (
                   <div
                     className="hotel__image"
@@ -134,8 +132,8 @@ function Hotel() {
           </div>
           <div className="hotel__details">
             <div className="hotel__text">
-              <h2 className="hotel__text-title">{data.title}</h2>
-              <p className="hotel__desc">{data.desc}</p>
+              <h2 className="hotel__text-title">{title}</h2>
+              <p className="hotel__desc">{desc}</p>
             </div>
             {days ? (
               <div className="hotel__details-price">
@@ -145,8 +143,7 @@ function Hotel() {
                   excellent location score of 9.8!
                 </p>
                 <h3>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                  nights)
+                  <b>${days * cheapestPrice * options.room}</b> ({days} nights)
                 </h3>
                 <button className="button__reserve">
                   Reserve or Book Now!
