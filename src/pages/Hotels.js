@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 
 function Hotels() {
   const location = useLocation();
-  console.log(location.state.destination || "");
   const [destination, setDestination] = useState(
     location.state.destination || ""
   );
@@ -16,7 +15,7 @@ function Hotels() {
 
   return (
     <div>
-      <Header type="list" />
+      <Header />
       <div className="hotels-container container">
         <div className="hotels-wrapper">
           <SearchHotels
