@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+
 export const Navbar = ({ props }) => {
   const navigate = useNavigate();
 
+  const { user } = useContext(AuthContext);
   const handleSearch = () => {
     navigate("/hotels", { state: {} });
   };
@@ -24,18 +28,22 @@ export const Navbar = ({ props }) => {
           </a>
         </li>
       </ul>
-      <ul className="nav__list">
-        <li className="nav__item login-register">
-          <a href="/" className="nav__link ">
-            Register
-          </a>
-        </li>
-        <li className="nav__item login-register">
-          <a href="/" className="nav__link">
-            Sign In
-          </a>
-        </li>
-      </ul>
+      {user ? (
+        <p className="username">{user.username}</p>
+      ) : (
+        <ul className="nav__list">
+          <li className="nav__item login-register">
+            <a href="/" className="nav__link ">
+              Register
+            </a>
+          </li>
+          <li className="nav__item login-register">
+            <a href="/login" className="nav__link">
+              Sign In
+            </a>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 };
