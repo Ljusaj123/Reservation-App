@@ -1,19 +1,11 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const ListCard = ({ props }) => {
+export const ListCard = ({ props, type }) => {
   const { name, count, imageUrl } = props;
   const navigate = useNavigate();
 
   const handleClick = () => {
-    var date = {
-      startDate: new Date(),
-      endDate: new Date(),
-    };
-
-    date = new Array(date);
-
-    navigate("/hotels", { state: { destination: name, date } });
+    navigate("/hotels", { state: { destination: name } });
   };
   return (
     <div className="cards-list__item">
