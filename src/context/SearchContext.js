@@ -14,6 +14,8 @@ const initialState = {
     children: 0,
     room: 1,
   },
+  property: "",
+  url: "",
 };
 
 export const SearchContext = createContext(initialState);
@@ -39,6 +41,8 @@ export const SearchContextProvider = ({ children }) => {
         city: state.city,
         date: state.date,
         options: state.options,
+        url: state.url,
+        property: state.property,
         dispatch,
       }}
     >
