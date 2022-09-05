@@ -1,19 +1,14 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-export const Navbar = ({ props }) => {
-  const navigate = useNavigate();
-
+export const Navbar = ({ show }) => {
   const { user } = useContext(AuthContext);
-  const handleSearch = () => {
-    navigate("/hotels", { state: {} });
-  };
+
   return (
-    <nav className={props ? "nav show" : "nav"}>
+    <nav className={show ? "nav show" : "nav"}>
       <ul className="nav__list">
         <li className="nav__item">
-          <a onClick={handleSearch} className="nav__link" href="/hotels">
+          <a className="nav__link" href="/">
             Stays
           </a>
         </li>

@@ -15,7 +15,7 @@ export const Header = ({ type }) => {
               <h2>Reserve</h2>
             </Link>
           </div>
-          <Navbar props={show} />
+          <Navbar show={show} />
           <div className="hamburger" onClick={() => setShow((show) => !show)}>
             <div
               className={show ? "hamburger_list open" : "hamburger_list"}
