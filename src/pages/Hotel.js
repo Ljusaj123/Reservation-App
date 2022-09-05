@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Header } from "../components/modules/Header";
 import { Email } from "../components/modules/Email";
@@ -14,11 +14,15 @@ import {
 } from "react-icons/bs";
 
 import useFetch from "../hooks/useFetch";
+import { AuthContext } from "../context/AuthContext";
+import { Reserve } from "../components/Reservation";
 
 function Hotel() {
   const { date, options } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const id = location.pathname.split("/")[2];
 
   const { data, error, loading } = useFetch(
@@ -27,7 +31,9 @@ function Hotel() {
 
   const { photos, city, address, distance, cheapestPrice, title, desc, name } =
     data;
+
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
 
   const handleSlider = (i) => {
@@ -58,6 +64,14 @@ function Hotel() {
   };
 
   let days = countDays();
+
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
+  };
 
   if (loading) {
     return (
@@ -113,7 +127,9 @@ function Hotel() {
                 free airport taxi
               </p>
             </div>
-            <button className="button__reserve">Reserve or Book Now!</button>
+            <button className="button__reserve" onClick={handleClick}>
+              Reserve or Book Now!
+            </button>
           </div>
 
           <div className="hotel__images">
@@ -145,7 +161,7 @@ function Hotel() {
                 <h3>
                   <b>${days * cheapestPrice * options.room}</b> ({days} nights)
                 </h3>
-                <button className="button__reserve">
+                <button className="button__reserve" onClick={handleClick}>
                   Reserve or Book Now!
                 </button>
               </div>
@@ -155,6 +171,8 @@ function Hotel() {
           </div>
         </div>
       </div>
+
+      {openModal && <Reserve setOpenModal={setOpenModal} id={id} />}
       <Email />
       <Footer />
     </>
