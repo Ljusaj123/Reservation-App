@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
 
-export const SearchHotels = ({ setUrl, setDestination, destination }) => {
-  const location = useLocation();
+export const SearchHotels = () => {
+  const { city, date, options, property, dispatch } = useContext(SearchContext);
 
-  const [date, setDate] = useState(
-    location.state.date || [
-      {
-        startDate: new Date(),
-        endDate: new Date(new Date().valueOf() + 1000 * 3600 * 24),
-        key: "selection",
+  const [destination, setDestination] = useState(city);
+  const [localDate, setLocalDate] = useState(date);
+  const [localOptions, setLocalOptions] = useState(options);
+  const [localType, setLocalType] = useState(property);
+
+  const handleClick = () => {
+    const url = `http://localhost:5500/api/v1/hotels?city=${destination}&min=${
+      min || 0
+    }&max=${max || 999}`;
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: {
+        city: destination,
+        date: localDate,
+        options: localOptions,
+        property: localType,
+        url: url,
       },
-    ]
-  );
-  const [options, setOptions] = useState(
-    location.state.options || {
-      adult: 1,
-      children: 0,
-      room: 1,
-    }
-  );
+    });
+  };
 
   const [openDate, setOpenDate] = useState(false);
   const [min, setMin] = useState(undefined);
@@ -43,19 +48,29 @@ export const SearchHotels = ({ setUrl, setDestination, destination }) => {
       <div className="hotels-search__item">
         <label>Check-in date</label>
         <span onClick={() => setOpenDate(!openDate)}>{`${format(
-          date[0].startDate,
+          localDate[0].startDate,
           "dd/MM/yyyy"
-        )} to ${format(date[0].endDate, "dd/MM/yyyy")} `}</span>
+        )} to ${format(localDate[0].endDate, "dd/MM/yyyy")} `}</span>
         {openDate && (
           <DateRange
             editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
+            onChange={(item) => setLocalDate([item.selection])}
             moveRangeOnFirstSelection={false}
             minDate={new Date()}
-            ranges={date}
+            ranges={localDate}
             className="date"
           />
         )}
+      </div>
+      <div className="hotels-search__item">
+        <label>Property</label>
+        <input
+          type="text"
+          placeholder="Property..."
+          className="input__search"
+          value={localType}
+          onChange={(e) => setLocalType(e.target.value)}
+        />
       </div>
       <div className="hotels-search__item">
         <label>Options</label>
@@ -87,7 +102,11 @@ export const SearchHotels = ({ setUrl, setDestination, destination }) => {
             type="number"
             min={1}
             className="input__number"
-            placeholder={options.adult}
+            placeholder={localOptions.adult}
+            value={localOptions.adult}
+            onChange={(e) =>
+              setLocalOptions({ ...localOptions, adult: e.target.value })
+            }
           />
         </div>
         <div className="option-item">
@@ -96,7 +115,11 @@ export const SearchHotels = ({ setUrl, setDestination, destination }) => {
             type="number"
             min={0}
             className="input__number"
-            placeholder={options.children}
+            value={localOptions.children}
+            placeholder={localOptions.children}
+            onChange={(e) =>
+              setLocalOptions({ ...localOptions, children: e.target.value })
+            }
           />
         </div>
         <div className="option-item">
@@ -105,20 +128,15 @@ export const SearchHotels = ({ setUrl, setDestination, destination }) => {
             type="number"
             min={1}
             className="input__number"
-            placeholder={options.room}
+            value={localOptions.room}
+            placeholder={localOptions.room}
+            onChange={(e) =>
+              setLocalOptions({ ...localOptions, room: e.target.value })
+            }
           />
         </div>
       </div>
-      <button
-        className="button__search"
-        onClick={() =>
-          setUrl(
-            `http://localhost:5500/api/v1/hotels?city=${destination}&min=${
-              min || 0
-            }&max=${max || 999}`
-          )
-        }
-      >
+      <button className="button__search" onClick={handleClick}>
         Search
       </button>
     </div>
