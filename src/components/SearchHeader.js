@@ -1,40 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaBed, FaCalendarAlt } from "react-icons/fa";
 import { GoPerson } from "react-icons/go";
+
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+
 import { Options } from "./Options";
 import { SearchContext } from "../context/SearchContext";
 
 export const SearchHeader = () => {
   const navigate = useNavigate();
 
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch, city, date, options } = useContext(SearchContext);
 
-  const [destination, setDestination] = useState("");
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(new Date().valueOf() + 1000 * 3600 * 24),
-      key: "selection",
-    },
-  ]);
-
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
+  const [destination, setDestination] = useState(city);
+  const [localDate, setLocalDate] = useState(date);
+  const [localOptions, setLocalOptions] = useState(options);
 
   const [openDate, setOpenDate] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
 
   const handleSearch = () => {
-    dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
-    navigate("/hotels", { state: { destination, date, options } });
+    const url = `http://localhost:5500/api/v1/hotels?city=${destination}`;
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: {
+        city: destination,
+        date: localDate,
+        options: localOptions,
+        url: url,
+      },
+    });
+    navigate("/hotels");
   };
 
   return (
@@ -53,16 +53,16 @@ export const SearchHeader = () => {
         <span
           onClick={() => setOpenDate(!openDate)}
           className="header-search__item-text"
-        >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
-          date[0].endDate,
+        >{`${format(localDate[0].startDate, "dd/MM/yyyy")} to ${format(
+          localDate[0].endDate,
           "dd/MM/yyyy"
         )} `}</span>
         {openDate && (
           <DateRange
             editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
+            onChange={(item) => setLocalDate([item.selection])}
             moveRangeOnFirstSelection={false}
-            ranges={date}
+            ranges={localDate}
             className="date"
             minDate={new Date()}
           />
@@ -74,9 +74,11 @@ export const SearchHeader = () => {
           onClick={() => setOpenOptions(!openOptions)}
           className="header-search__item-text"
         >
-          {`${options.adult} adult ${options.children} children ${options.room} room`}
+          {`${localOptions.adult} adult ${localOptions.children} children ${localOptions.room} room`}
         </span>
-        {openOptions && <Options options={options} setOptions={setOptions} />}
+        {openOptions && (
+          <Options options={localOptions} setOptions={setLocalOptions} />
+        )}
       </div>
       <div className="header-search__item header-search__button">
         <button className="button__search" onClick={handleSearch}>

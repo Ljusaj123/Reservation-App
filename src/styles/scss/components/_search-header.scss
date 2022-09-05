@@ -3,7 +3,7 @@
 .header-search {
   max-width: 1200px;
   width: 100%;
-  @include universal-flex-display(center, center);
+  @include universal-flex-display(space-between, center);
   flex-wrap: wrap;
   background-color: $white;
   border: 3px solid $light-purple;
@@ -13,8 +13,7 @@
 
   &__item {
     @include universal-flex-display(initial, center);
-    flex-basis: 260px;
-    flex-grow: 1;
+    flex: 1 260px;
     padding: 0.7em;
     gap: 0.5em;
 
@@ -27,6 +26,7 @@
       cursor: pointer;
       line-height: 2;
     }
+
     .date {
       position: absolute;
       top: 100%;
@@ -48,5 +48,6 @@
 @include media-1152 {
   .header-search .header-search__button {
     justify-content: center;
+    width: 100%;
   }
 }
