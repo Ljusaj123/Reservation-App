@@ -89,7 +89,7 @@ function Hotel() {
   }
   return (
     <>
-      <Header type="list" />
+      <Header />
       <div className="hotel">
         <div className="hotel-container container">
           {open && (
