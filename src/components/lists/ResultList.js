@@ -1,7 +1,10 @@
 import { ResultCard } from "../cards/ResultCard";
 import useFetch from "../../hooks/useFetch";
+import { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
-export const ResultList = ({ url }) => {
+export const ResultList = () => {
+  const { url } = useContext(SearchContext);
   const { data, error, loading } = useFetch(url);
 
   if (loading) {
