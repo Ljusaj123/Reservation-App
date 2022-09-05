@@ -6,7 +6,7 @@ export const ResultCard = ({ props }) => {
   const { _id, name, photos, cheapestPrice, rating, distance, desc } = props;
 
   const handleSearch = () => {
-    navigate(`${_id}`, { state: {} });
+    navigate(`${_id}`);
   };
 
   return (
