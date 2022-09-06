@@ -41,4 +41,6 @@ svg {
 .close-icon {
   top: 1%;
   right: 15%;
+  font-size: $svg-font-size__larger;
+  cursor: pointer;
 }
