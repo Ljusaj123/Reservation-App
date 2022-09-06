@@ -12,11 +12,21 @@
     }
   }
 
-  .username {
-    border-radius: 15px;
-    padding: 0.5em;
-    border: 3px solid white;
+  .user {
+    @include universal-flex-display(center, center);
+    flex-direction: column;
+    gap: 0.5rem;
+    & > p {
+      border-radius: 15px;
+      padding: 0.5em;
+      border: 3px solid white;
+    }
+
+    & > span {
+      cursor: pointer;
+    }
   }
+
   &__item {
     padding: 0.5em 1em;
     border: 1px solid transparent;
