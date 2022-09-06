@@ -28,7 +28,6 @@ const Login = () => {
         "http://localhost:5500/api/v1/auth/login",
         credentials
       );
-      console.log(res);
 
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
@@ -41,7 +40,7 @@ const Login = () => {
   return (
     <div className="login">
       <h2>Login User</h2>
-      <div className="login-container">
+      <div className="login__container">
         <input
           type="text"
           placeholder="username"
@@ -73,11 +72,14 @@ const Login = () => {
         <button
           disabled={loading}
           onClick={handleClick}
-          className="button__search"
+          className="button__login"
         >
           Login
         </button>
         {error && <p>{error.message}</p>}
+        <p>
+          Already have an account? <a href="/register">Register</a>
+        </p>
       </div>
     </div>
   );
