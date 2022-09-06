@@ -9,7 +9,7 @@ export const ResultCard = ({ props }) => {
     cheapestPrice,
     rating,
     distance,
-    desc,
+    title,
     freeCancelation,
     freeAirportTaxi,
   } = props;
@@ -29,7 +29,7 @@ export const ResultCard = ({ props }) => {
         <p className="result-item__subtitle">
           Studio Apartment with Air conditioning
         </p>
-        <span className="result-item__features">{desc}</span>
+        <span className="result-item__features">{title}</span>
         {freeCancelation ? (
           <>
             <span className="result-item__cancelOp">Free cancellation </span>

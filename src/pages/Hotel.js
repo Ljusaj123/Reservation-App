@@ -137,7 +137,6 @@ function Hotel() {
           </div>
           <div className="hotel__details">
             <div className="hotel__text">
-              <h2 className="hotel__text-title">{title}</h2>
               <p className="hotel__desc">{desc}</p>
             </div>
             {days ? (

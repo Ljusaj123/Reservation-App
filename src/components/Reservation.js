@@ -58,7 +58,7 @@ export const Reservation = ({ setOpenModal, id }) => {
       <div className="reservation__container">
         <IoMdCloseCircle
           onClick={() => setOpenModal(false)}
-          className="close-icon"
+          className="icon__closeRes"
         />
         <h2>Select your rooms</h2>
         {data.map((item) => {
