@@ -40,7 +40,7 @@ export const SearchHeader = () => {
   return (
     <div className="header-search">
       <div className="header-search__item">
-        <FaBed className="header-search__item-icon" />
+        <FaBed className="icon__search" />
         <input
           type="text"
           placeholder="Where are you going?"
@@ -49,7 +49,7 @@ export const SearchHeader = () => {
         />
       </div>
       <div className="header-search__item">
-        <FaCalendarAlt className="header-search__item-icon" />
+        <FaCalendarAlt className="icon__search" />
         <span
           onClick={() => setOpenDate(!openDate)}
           className="header-search__item-text"
@@ -69,7 +69,7 @@ export const SearchHeader = () => {
         )}
       </div>
       <div className="header-search__item">
-        <GoPerson className="header-search__item-icon" />
+        <GoPerson className="icon__search" />
         <span
           onClick={() => setOpenOptions(!openOptions)}
           className="header-search__item-text"

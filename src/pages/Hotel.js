@@ -12,6 +12,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import { FiTarget } from "react-icons/fi";
 
 import useFetch from "../hooks/useFetch";
 import { AuthContext } from "../context/AuthContext";
@@ -89,15 +90,15 @@ function Hotel() {
             <div className="slider">
               <BsFillArrowLeftCircleFill
                 onClick={() => handleMove("l")}
-                className="left-arrow-icon"
+                className="left-arrow-icon icon__popup"
               />
               <BsFillArrowRightCircleFill
                 onClick={() => handleMove("d")}
-                className="right-arrow-icon"
+                className="right-arrow-icon icon__popup"
               />
               <IoMdCloseCircle
                 onClick={() => setOpen(false)}
-                className="close-icon"
+                className="close-icon icon__popup"
               />
               <img src={photos[slideNumber]} alt="" className="sliderImg" />
             </div>
@@ -107,18 +108,15 @@ function Hotel() {
             <div className="hotel__intro-text">
               <h1 className="hotel__title">{name}</h1>
               <div className="hotel__address">
-                <GoLocation />
-                <span>
+                <GoLocation className="icon__show" />
+                <p>
                   {address}, {city}
-                </span>
+                </p>
               </div>
-              <p className="hotel__location">
-                Excellent location, {distance}m from center
-              </p>
-              <p className="hotel__price-highlight">
-                Book a stay over ${cheapestPrice} at this property and get a
-                free airport taxi
-              </p>
+              <div className="hotel__location">
+                <FiTarget className="icon__show" />
+                <p>{distance} from the center</p>
+              </div>
             </div>
             <button className="button__reserve" onClick={handleClick}>
               Reserve or Book Now!

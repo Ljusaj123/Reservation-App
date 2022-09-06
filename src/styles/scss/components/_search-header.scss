@@ -17,14 +17,10 @@
     padding: 0.7em;
     gap: 0.5em;
 
-    &-icon,
-    &-text {
-      color: $black;
-    }
-
     &-text {
       cursor: pointer;
       line-height: 2;
+      color: $black;
     }
 
     .date {

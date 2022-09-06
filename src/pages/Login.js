@@ -55,12 +55,12 @@ const Login = () => {
           {isVisible ? (
             <AiTwotoneEyeInvisible
               onClick={() => setIsVisible(false)}
-              className="visible-icon"
+              className="icon__visible"
             />
           ) : (
             <AiFillEye
               onClick={() => setIsVisible(true)}
-              className="visible-icon"
+              className="icon__visible"
             />
           )}
         </div>

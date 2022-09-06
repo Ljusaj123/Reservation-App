@@ -21,17 +21,17 @@
     }
   }
 
-  &__address > span {
-    margin-left: 0.5em;
-    font-weight: $fw_bold;
+  &__address {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
 
   &__location {
     color: $medium-blue;
-  }
-
-  &__price-highlight {
-    color: $green;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
 
   &__images {
@@ -86,31 +86,6 @@
   width: 100vw;
   z-index: 2;
   @include universal-flex-display(center, center);
-
-  & > svg {
-    position: absolute;
-    color: $white;
-    font-size: 3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:active {
-      transform: scale(0.9);
-    }
-  }
-
-  .right-arrow-icon {
-    top: 50%;
-    right: 15%;
-  }
-  .left-arrow-icon {
-    top: 50%;
-    left: 15%;
-  }
-  .close-icon {
-    top: 1%;
-    right: 15%;
-  }
 }
 
 @include media-860 {
