@@ -55,7 +55,7 @@
     flex: 1;
   }
   &__rating {
-    @include universal-flex-display(space-between, center);
+    @include universal-flex-display(flex-end, center);
 
     & > span {
       font-weight: $fw_bold;
