@@ -2,12 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export const ResultCard = ({ props }) => {
   const navigate = useNavigate();
-
   const { _id, name, photos, cheapestPrice, rating, distance, desc } = props;
-
-  const handleSearch = () => {
-    navigate(`${_id}`);
-  };
 
   return (
     <div className="result-item">
@@ -38,7 +33,7 @@ export const ResultCard = ({ props }) => {
 
           <button
             className="button__availability"
-            onClick={() => handleSearch()}
+            onClick={() => navigate(`${_id}`)}
           >
             See availability
           </button>
