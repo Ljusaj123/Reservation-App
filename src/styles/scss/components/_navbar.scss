@@ -6,6 +6,10 @@
 
   &__list {
     display: flex;
+
+    .login-register {
+      background-color: $light-purple;
+    }
   }
 
   .username {
@@ -28,9 +32,6 @@
   }
   &__item + &__item {
     margin-left: 10px;
-  }
-  .login-register {
-    background-color: $light-purple;
   }
 }
 
