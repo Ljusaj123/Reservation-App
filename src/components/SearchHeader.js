@@ -10,41 +10,52 @@ import { format } from "date-fns";
 
 import { Options } from "./Options";
 import { SearchContext } from "../context/SearchContext";
+import { useEffect } from "react";
 
 export const SearchHeader = () => {
   const navigate = useNavigate();
 
   const { dispatch, city, date, options } = useContext(SearchContext);
 
+  useEffect(() => {
+    dispatch({ type: "RESET_SEARCH" });
+  }, []);
+
   const [destination, setDestination] = useState(city);
+  console.log(destination);
   const [localDate, setLocalDate] = useState(date);
   const [localOptions, setLocalOptions] = useState(options);
 
   const [openDate, setOpenDate] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
+  const [errorInput, setErrorInput] = useState(false);
 
   const handleSearch = () => {
-    const url = `http://localhost:5500/api/v1/hotels?city=${destination}`;
-    dispatch({
-      type: "NEW_SEARCH",
-      payload: {
-        city: destination,
-        date: localDate,
-        options: localOptions,
-        url: url,
-      },
-    });
-    navigate("/hotels");
+    if (destination === "") {
+      setErrorInput(true);
+    } else {
+      const url = `http://localhost:5500/api/v1/hotels?city=${destination}`;
+      dispatch({
+        type: "NEW_SEARCH",
+        payload: {
+          city: destination,
+          date: localDate,
+          options: localOptions,
+          url: url,
+        },
+      });
+      navigate("/hotels");
+    }
   };
 
   return (
     <div className="header-search">
-      <div className="header-search__item">
+      <div className="header-search__item ">
         <FaBed className="icon__search" />
         <input
           type="text"
           placeholder="Where are you going?"
-          className="input__search"
+          className={errorInput ? "input__search error_input" : "input__search"}
           onChange={(e) => setDestination(e.target.value)}
         />
       </div>
