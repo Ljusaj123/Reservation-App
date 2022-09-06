@@ -15,7 +15,7 @@ const initialState = {
     room: 1,
   },
   property: "",
-  url: "",
+  url: "http://localhost:5500/api/v1/hotels",
 };
 
 export const SearchContext = createContext(initialState);
