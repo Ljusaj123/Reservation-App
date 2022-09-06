@@ -17,6 +17,8 @@ import useFetch from "../hooks/useFetch";
 import { AuthContext } from "../context/AuthContext";
 import { Reserve } from "../components/Reservation";
 
+import { countDays } from "../utils/countdays";
+
 function Hotel() {
   const { date, options } = useContext(SearchContext);
   const { user } = useContext(AuthContext);
@@ -41,6 +43,14 @@ function Hotel() {
     setSlideNumber(i);
   };
 
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
+  };
+
   const handleMove = (move) => {
     const numberOfPhotos = photos.length - 1;
     let newSlideNumber;
@@ -54,24 +64,7 @@ function Hotel() {
     setSlideNumber(newSlideNumber);
   };
 
-  const countDays = () => {
-    const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-    const timeDiff = Math.abs(
-      date[0].startDate.getTime() - date[0].endDate.getTime()
-    );
-    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
-    return diffDays;
-  };
-
-  let days = countDays();
-
-  const handleClick = () => {
-    if (user) {
-      setOpenModal(true);
-    } else {
-      navigate("/login");
-    }
-  };
+  let days = countDays(date[0].startDate, date[0].endDate);
 
   if (loading) {
     return (
