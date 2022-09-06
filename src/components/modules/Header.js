@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Navbar } from "../Navbar";
 import { SearchHeader } from "../SearchHeader";
@@ -11,9 +10,9 @@ export const Header = ({ type }) => {
       <div className="header-container container ">
         <div className="navbar-container">
           <div className="logo-container">
-            <Link to="/">
+            <a href="/">
               <h2>Reserve</h2>
-            </Link>
+            </a>
           </div>
           <Navbar show={show} />
           <div className="hamburger" onClick={() => setShow((show) => !show)}>
