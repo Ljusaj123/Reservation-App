@@ -75,9 +75,9 @@ const Login = () => {
           >
             Login
           </button>
-          {error && <p>{error.message}</p>}
+          {error && <span>{error.message}</span>}
           <p>
-            Already have an account? <a href="/register">Register</a>
+            Don't have an account? <a href="/register">Register</a>
           </p>
         </div>
       </div>
