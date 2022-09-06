@@ -1,16 +1,14 @@
 import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { ListCard } from "../cards/ListCard";
+import { HalfMalf } from "react-spinner-animated";
+import "react-spinner-animated/dist/index.css";
 
 export const CardsList = ({ images, url, type }) => {
   const { data, error, loading } = useFetch(url);
 
   if (loading) {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+    return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
   }
   if (error.isError) {
     return (

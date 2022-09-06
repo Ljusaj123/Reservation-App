@@ -1,10 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 
 import { Header } from "../components/modules/Header";
 import { Email } from "../components/modules/Email";
 import { Footer } from "../components/modules/Footer";
 import { SearchContext } from "../context/SearchContext";
+import { AuthContext } from "../context/AuthContext";
+import { Reservation } from "../components/Reservation";
 
 import { GoLocation } from "react-icons/go";
 import { IoMdCloseCircle } from "react-icons/io";
@@ -14,11 +17,10 @@ import {
 } from "react-icons/bs";
 import { FiTarget } from "react-icons/fi";
 
-import useFetch from "../hooks/useFetch";
-import { AuthContext } from "../context/AuthContext";
-import { Reserve } from "../components/Reservation";
-
 import { countDays } from "../utils/countdays";
+import { HalfMalf } from "react-spinner-animated";
+
+import "react-spinner-animated/dist/index.css";
 
 function Hotel() {
   const { date, options } = useContext(SearchContext);
@@ -68,11 +70,7 @@ function Hotel() {
   let days = countDays(date[0].startDate, date[0].endDate);
 
   if (loading) {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+    return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
   }
   if (error.isError) {
     return (
@@ -163,7 +161,7 @@ function Hotel() {
         </div>
       </div>
 
-      {openModal && <Reserve setOpenModal={setOpenModal} id={id} />}
+      {openModal && <Reservation setOpenModal={setOpenModal} id={id} />}
       <Email />
       <Footer />
     </>

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDatesInRange } from "../utils/getDatesInRange";
 
-export const Reserve = ({ setOpenModal, id }) => {
+export const Reservation = ({ setOpenModal, id }) => {
   const navigate = useNavigate();
 
   const [selectedRooms, setSelectedRooms] = useState([]);

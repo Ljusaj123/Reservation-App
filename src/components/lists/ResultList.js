@@ -2,6 +2,8 @@ import { ResultCard } from "../cards/ResultCard";
 import useFetch from "../../hooks/useFetch";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import { HalfMalf } from "react-spinner-animated";
+import "react-spinner-animated/dist/index.css";
 
 export const ResultList = () => {
   const { url } = useContext(SearchContext);
@@ -10,7 +12,7 @@ export const ResultList = () => {
   if (loading) {
     return (
       <>
-        <p>Loading...</p>
+        return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />
       </>
     );
   }
