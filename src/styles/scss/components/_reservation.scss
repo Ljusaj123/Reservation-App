@@ -1,0 +1,49 @@
+@use "../base/" as *;
+.reservation {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.712);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include universal-flex-display(center, center);
+
+  &__container {
+    background-color: $white;
+    border-radius: 5px;
+    padding: 1.5em;
+    position: relative;
+    width: clamp(300px, 95%, 600px);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+
+  &__item {
+    @include universal-flex-display(space-between, center);
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.185);
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      & > p {
+        font-weight: $fw_bold;
+      }
+    }
+
+    &-selectRooms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+  }
+  &-room {
+    display: flex;
+    flex-direction: column;
+  }
+}
