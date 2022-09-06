@@ -36,3 +36,6 @@ input {
   max-width: 80px;
   padding: 0.3em;
 }
+.error_input {
+  border-bottom: 3px solid $red;
+}
