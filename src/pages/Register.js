@@ -6,14 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const navigate = useNavigate();
+  const { loading, error, dispatch } = useContext(AuthContext);
+  const [isVisible, setIsVisible] = useState(false);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
     email: "",
   });
-
-  const { loading, error, dispatch } = useContext(AuthContext);
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -27,12 +26,10 @@ export const Register = () => {
         "http://localhost:5500/api/v1/auth/register",
         credentials
       );
-      console.log(res);
 
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/login");
     } catch (err) {
-      console.log(err);
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
   };

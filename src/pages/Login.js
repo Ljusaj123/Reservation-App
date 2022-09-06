@@ -5,16 +5,13 @@ import { AuthContext } from "../context/AuthContext";
 import { AiFillEye, AiTwotoneEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { loading, error, dispatch } = useContext(AuthContext);
+  const [isVisible, setIsVisible] = useState(false);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-
-  const { loading, error, dispatch } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -32,7 +29,6 @@ const Login = () => {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
     } catch (err) {
-      console.log(err);
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
   };
