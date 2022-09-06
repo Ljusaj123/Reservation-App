@@ -1,8 +1,19 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export const Navbar = ({ show }) => {
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, dispatch, loading } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <nav className={show ? "nav show" : "nav"}>
@@ -24,7 +35,10 @@ export const Navbar = ({ show }) => {
         </li>
       </ul>
       {user ? (
-        <p className="username">{user.username}</p>
+        <div className="user">
+          <p>{user.username}</p>
+          <span onClick={handleLogout}>Log out</span>
+        </div>
       ) : (
         <ul className="nav__list">
           <li className="nav__item login-register">
