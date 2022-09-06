@@ -28,8 +28,8 @@ export const CardsList = ({ images, url, type }) => {
   });
   return (
     <div className="cards-list">
-      {list.map((item) => {
-        return <ListCard props={item} key={item._id} type={type} />;
+      {list.map((item, index) => {
+        return <ListCard props={item} key={index} type={type} />;
       })}
     </div>
   );
