@@ -1178,6 +1178,14 @@ svg {
   cursor: pointer;
 }
 
+.icon__closeRes {
+  top: 1%;
+  left: 3%;
+  position: absolute;
+  font-size: clamp(1.2rem, 1.5vw + 0.1rem, 2rem);
+  cursor: pointer;
+}
+
 .reservation {
   width: 100vw;
   height: 100vh;
