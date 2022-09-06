@@ -34,3 +34,5 @@ $light-blue: rgb(140, 175, 240);
 $input-font-size: clamp(0.9rem, calc(1.5vw + 0.3rem), 1.2rem);
 $button-font-size__smaller: clamp(1rem, calc(1.4vw + 0.3rem), 1.25rem);
 $button-font-size__larger: clamp(1.1rem, calc(1.5vw + 0.3rem), 1.4rem);
+$svg-font-size__smaller: clamp(0.9rem, calc(1.5vw + 0.1rem), 1.3rem);
+$svg-font-size__larger: clamp(1.2rem, calc(1.5vw + 0.1rem), 2rem);
