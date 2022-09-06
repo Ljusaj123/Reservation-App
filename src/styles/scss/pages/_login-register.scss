@@ -1,11 +1,12 @@
 @use "../base/" as *;
 .login {
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: $medium-blue;
   height: 100vh;
   @include universal-flex-display(center, center);
   flex-direction: column;
+  color: $white;
 
-  &-container {
+  &__container {
     width: 20vw;
     margin: 2em auto;
     display: flex;
@@ -13,9 +14,16 @@
     gap: 2em;
     min-width: 200px;
 
-    & > p {
+    & > span {
       color: $red;
       align-self: center;
+    }
+    & > p {
+      align-self: center;
+
+      & > a {
+        text-decoration: underline;
+      }
     }
 
     .password-input {
@@ -33,4 +41,5 @@
   right: 2%;
   top: 25%;
   font-size: 1.5rem;
+  color: $black;
 }
