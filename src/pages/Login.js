@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { AiFillEye, AiTwotoneEyeInvisible } from "react-icons/ai";
+import { Header } from "../components/modules/Header";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,50 +35,53 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <h2>Login User</h2>
-      <div className="login__container">
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={handleChange}
-          className="input__search"
-        />
-        <div className="password-input">
+    <>
+      <Header />
+      <div className="login">
+        <h2>Login User</h2>
+        <div className="login__container">
           <input
-            type={isVisible ? "text" : "password"}
-            placeholder="password"
-            id="password"
+            type="text"
+            placeholder="username"
+            id="username"
             onChange={handleChange}
-            className="input__search password"
+            className="input__search"
           />
-          {isVisible ? (
-            <AiTwotoneEyeInvisible
-              onClick={() => setIsVisible(false)}
-              className="icon__visible"
+          <div className="password-input">
+            <input
+              type={isVisible ? "text" : "password"}
+              placeholder="password"
+              id="password"
+              onChange={handleChange}
+              className="input__search password"
             />
-          ) : (
-            <AiFillEye
-              onClick={() => setIsVisible(true)}
-              className="icon__visible"
-            />
-          )}
-        </div>
+            {isVisible ? (
+              <AiTwotoneEyeInvisible
+                onClick={() => setIsVisible(false)}
+                className="icon__visible"
+              />
+            ) : (
+              <AiFillEye
+                onClick={() => setIsVisible(true)}
+                className="icon__visible"
+              />
+            )}
+          </div>
 
-        <button
-          disabled={loading}
-          onClick={handleClick}
-          className="button__login"
-        >
-          Login
-        </button>
-        {error && <p>{error.message}</p>}
-        <p>
-          Already have an account? <a href="/register">Register</a>
-        </p>
+          <button
+            disabled={loading}
+            onClick={handleClick}
+            className="button__login"
+          >
+            Login
+          </button>
+          {error && <p>{error.message}</p>}
+          <p>
+            Already have an account? <a href="/register">Register</a>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
