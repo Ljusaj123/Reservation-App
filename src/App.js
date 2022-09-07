@@ -7,6 +7,7 @@ import Hotels from "./pages/Hotels";
 import "./styles/css/style.css";
 import Login from "./pages/Login";
 import { Register } from "./pages/Register";
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
               <Route path="/hotels/:id" element={<Hotel />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </SearchContextProvider>

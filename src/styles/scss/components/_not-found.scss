@@ -1,0 +1,13 @@
+@use "../base/" as *;
+
+.not-found {
+  height: 100vh;
+  background-color: $medium-blue;
+  color: $white;
+  @include universal-flex-display(center, center);
+  flex-direction: column;
+
+  & > p {
+    margin-bottom: 3em;
+  }
+}
