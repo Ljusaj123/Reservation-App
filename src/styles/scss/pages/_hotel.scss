@@ -21,16 +21,10 @@
     }
   }
 
-  &__address {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-  }
-
   &__location {
     color: $medium-blue;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5em;
   }
 
@@ -56,10 +50,10 @@
   }
 
   &__details {
-    @include universal-flex-display(initial, center);
+    display: flex;
     padding: 1em 0;
     margin: 2em 0;
-    gap: 2em;
+    gap: 3em;
   }
   &__text {
     flex: 2;
@@ -86,6 +80,21 @@
   width: 100vw;
   z-index: 2;
   @include universal-flex-display(center, center);
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2em;
+
+  &-container {
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $medium-blue;
+  }
 }
 
 @include media-860 {

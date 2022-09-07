@@ -16,6 +16,7 @@ svg {
 
 .icon__show {
   font-size: $svg-font-size__larger;
+  margin-right: 0.5em;
 }
 
 .icon__popup {
@@ -50,4 +51,9 @@ svg {
   position: absolute;
   font-size: $svg-font-size__larger;
   cursor: pointer;
+}
+
+.icon__feature {
+  font-size: $svg-font-size__larger;
+  color: $medium-blue;
 }

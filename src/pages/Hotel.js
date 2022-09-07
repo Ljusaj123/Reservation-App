@@ -16,6 +16,9 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { FiTarget } from "react-icons/fi";
+import { AiOutlineWifi } from "react-icons/ai";
+import { FaUmbrellaBeach } from "react-icons/fa";
+import { MdLocalParking, MdPool, MdHotTub, MdBalcony } from "react-icons/md";
 
 import { countDays } from "../utils/countdays";
 import { HalfMalf } from "react-spinner-animated";
@@ -34,8 +37,25 @@ function Hotel() {
     `http://localhost:5500/api/v1/hotels/${id}`
   );
 
-  const { photos, city, address, distance, cheapestPrice, title, desc, name } =
-    data;
+  console.log(data);
+
+  const {
+    name,
+    city,
+    photos,
+    address,
+    distanceFromCenter,
+    distanceFromBeach,
+    cheapestPrice,
+    desc,
+    freeParking,
+    freeWifi,
+    balcony,
+    pool,
+    jacuzzi,
+    freeAirportTaxi,
+    freeCancelation,
+  } = data;
 
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -106,14 +126,24 @@ function Hotel() {
             <div className="hotel__intro-text">
               <h1 className="hotel__title">{name}</h1>
               <div className="hotel__address">
-                <GoLocation className="icon__show" />
                 <p>
+                  <GoLocation className="icon__show" />
                   {address}, {city}
                 </p>
               </div>
               <div className="hotel__location">
-                <FiTarget className="icon__show" />
-                <p>{distance} from the center</p>
+                {distanceFromCenter && (
+                  <p>
+                    <FiTarget className="icon__show" />
+                    {distanceFromCenter} from the center
+                  </p>
+                )}
+                {distanceFromBeach && (
+                  <p>
+                    <FaUmbrellaBeach className="icon__show" />
+                    {distanceFromCenter} from the beach
+                  </p>
+                )}
               </div>
             </div>
             <button className="button__reserve" onClick={handleClick}>
@@ -135,8 +165,45 @@ function Hotel() {
                 );
               })}
           </div>
+
+          <div className="features container">
+            {freeParking && (
+              <div className="features-container">
+                <MdLocalParking className="icon__feature" />{" "}
+                <span>Free Parking</span>
+              </div>
+            )}
+            {freeAirportTaxi && (
+              <div className="features-container">
+                <MdLocalParking className="icon__feature" />{" "}
+                <span>Free Taxi to Airport</span>
+              </div>
+            )}{" "}
+            {freeWifi && (
+              <div className="features-container">
+                <AiOutlineWifi className="icon__feature" />{" "}
+                <span>Free Wifi</span>
+              </div>
+            )}
+            {jacuzzi && (
+              <div className="features-container">
+                <MdHotTub className="icon__feature" /> <span>jacuzzi</span>
+              </div>
+            )}
+            {pool && (
+              <div className="features-container">
+                <MdPool className="icon__feature" /> <span>Pool</span>
+              </div>
+            )}{" "}
+            {balcony && (
+              <div className="features-container">
+                <MdBalcony className="icon__feature" /> <span>Balcony</span>
+              </div>
+            )}
+          </div>
           <div className="hotel__details">
             <div className="hotel__text">
+              <h3>About Us:</h3>
               <p className="hotel__desc">{desc}</p>
             </div>
             {days ? (
@@ -161,7 +228,6 @@ function Hotel() {
       </div>
 
       {openModal && <Reservation setOpenModal={setOpenModal} id={id} />}
-      <Email />
       <Footer />
     </>
   );

@@ -29,16 +29,19 @@
     color: $medium-blue;
   }
 
+  &__distance {
+    display: flex;
+    flex-direction: column;
+    color: $medium-blue;
+    font-weight: 700;
+  }
+
   &__taxiOp {
     background-color: $green;
     color: $white;
     width: max-content;
     border-radius: 5px;
     padding: 0.1em;
-  }
-
-  &__subtitle {
-    font-weight: $fw_bold;
   }
 
   &__cancelOp {

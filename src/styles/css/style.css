@@ -142,23 +142,15 @@ img {
           flex-direction: column;
   gap: 1em;
 }
-.hotel__address {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.5em;
-}
 .hotel__location {
   color: rgb(34, 7, 97);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 0.5em;
 }
 .hotel__images {
@@ -196,15 +188,9 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: initial;
-      -ms-flex-pack: initial;
-          justify-content: initial;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 1em 0;
   margin: 2em 0;
-  gap: 2em;
+  gap: 3em;
 }
 .hotel__text {
   -webkit-box-flex: 2;
@@ -247,6 +233,31 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2em;
+}
+.features-container {
+  padding: 0.3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgb(34, 7, 97);
 }
 
 @media screen and (max-width: 860px) {
@@ -1043,6 +1054,17 @@ input:focus::placeholder {
 .result-item__title {
   color: rgb(34, 7, 97);
 }
+.result-item__distance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: rgb(34, 7, 97);
+  font-weight: 700;
+}
 .result-item__taxiOp {
   background-color: rgb(3, 122, 29);
   color: rgb(255, 255, 255);
@@ -1051,9 +1073,6 @@ input:focus::placeholder {
   width: max-content;
   border-radius: 5px;
   padding: 0.1em;
-}
-.result-item__subtitle {
-  font-weight: 700;
 }
 .result-item__cancelOp {
   color: rgb(3, 122, 29);
@@ -1146,6 +1165,7 @@ svg {
 
 .icon__show {
   font-size: clamp(1.2rem, 1.5vw + 0.1rem, 2rem);
+  margin-right: 0.5em;
 }
 
 .icon__popup {
@@ -1184,6 +1204,11 @@ svg {
   position: absolute;
   font-size: clamp(1.2rem, 1.5vw + 0.1rem, 2rem);
   cursor: pointer;
+}
+
+.icon__feature {
+  font-size: clamp(1.2rem, 1.5vw + 0.1rem, 2rem);
+  color: rgb(34, 7, 97);
 }
 
 .reservation {

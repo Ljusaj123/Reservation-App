@@ -8,7 +8,8 @@ export const ResultCard = ({ props }) => {
     photos,
     cheapestPrice,
     rating,
-    distance,
+    distanceFromCenter,
+    distanceFromBeach,
     title,
     freeCancelation,
     freeAirportTaxi,
@@ -19,16 +20,20 @@ export const ResultCard = ({ props }) => {
       <img src={photos[0]} alt="" className="result-item__img" />
       <div className="result-item__desc">
         <h3 className="result-item__title">{name}</h3>
-        <p className="result-item__distance">{distance} from center</p>
+        <div className="result-item__distance">
+          <span>
+            {distanceFromCenter && `${distanceFromCenter}m from the center`}
+          </span>
+          <span>
+            {distanceFromBeach && `${distanceFromBeach}m from the beach`}
+          </span>
+        </div>
         {freeAirportTaxi ? (
           <p className="result-item__taxiOp">Free airport taxi</p>
         ) : (
           ""
         )}
 
-        <p className="result-item__subtitle">
-          Studio Apartment with Air conditioning
-        </p>
         <span className="result-item__features">{title}</span>
         {freeCancelation ? (
           <>
