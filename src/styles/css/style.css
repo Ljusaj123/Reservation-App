@@ -327,6 +327,9 @@ img {
 .login__container .password {
   width: 100%;
 }
+.login__container .confirm-message {
+  color: rgb(64, 128, 78);
+}
 
 .nav {
   display: -webkit-box;
@@ -1071,7 +1074,7 @@ input:focus::placeholder {
   font-weight: 700;
 }
 .result-item__taxiOp {
-  background-color: rgb(3, 122, 29);
+  background-color: rgb(64, 128, 78);
   color: rgb(255, 255, 255);
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -1080,11 +1083,11 @@ input:focus::placeholder {
   padding: 0.1em;
 }
 .result-item__cancelOp {
-  color: rgb(3, 122, 29);
+  color: rgb(64, 128, 78);
   font-weight: 700;
 }
 .result-item__cancelOpSubtitle {
-  color: rgb(3, 122, 29);
+  color: rgb(64, 128, 78);
 }
 .result-item__details {
   display: -webkit-box;
