@@ -750,13 +750,13 @@ img {
   gap: 2em;
 }
 
-footer {
+.footer {
   background-color: rgb(34, 7, 97);
   min-height: 25vh;
   color: rgb(255, 255, 255);
   padding: 2em 0;
 }
-footer > p {
+.footer__container > p {
   text-align: center;
 }
 
