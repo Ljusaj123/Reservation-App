@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 import { Header } from "../components/modules/Header";
@@ -20,17 +20,16 @@ import { FaUmbrellaBeach, FaTaxi } from "react-icons/fa";
 import { MdLocalParking, MdPool, MdHotTub, MdBalcony } from "react-icons/md";
 
 import { countDays } from "../utils/countdays";
-import { HalfMalf } from "react-spinner-animated";
 
+import { HalfMalf } from "react-spinner-animated";
 import "react-spinner-animated/dist/index.css";
 
 function Hotel() {
   const { date, options } = useContext(SearchContext);
   const { user } = useContext(AuthContext);
 
-  const location = useLocation();
   const navigate = useNavigate();
-  const id = location.pathname.split("/")[2];
+  const { id } = useParams();
 
   const { data, error, loading } = useFetch(
     `http://localhost:5500/api/v1/hotels/${id}`
@@ -89,11 +88,7 @@ function Hotel() {
     return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
   }
   if (error.isError) {
-    return (
-      <>
-        <p>{error.message}</p>
-      </>
-    );
+    return <p>{error.message}</p>;
   }
   return (
     <>
@@ -165,7 +160,7 @@ function Hotel() {
           <div className="features container">
             {freeParking && (
               <div className="features-container">
-                <MdLocalParking className="icon__feature" />{" "}
+                <MdLocalParking className="icon__feature" />
                 <span>Free Parking</span>
               </div>
             )}
@@ -177,7 +172,7 @@ function Hotel() {
             )}{" "}
             {freeWifi && (
               <div className="features-container">
-                <AiOutlineWifi className="icon__feature" />{" "}
+                <AiOutlineWifi className="icon__feature" />
                 <span>Free Wifi</span>
               </div>
             )}

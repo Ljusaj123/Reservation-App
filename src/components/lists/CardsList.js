@@ -11,11 +11,7 @@ export const CardsList = ({ images, url, type }) => {
     return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
   }
   if (error.isError) {
-    return (
-      <>
-        <p>{error.message}</p>
-      </>
-    );
+    return <p>{error.message}</p>;
   }
 
   const list = data.map((item, index) => {

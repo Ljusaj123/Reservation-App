@@ -10,18 +10,10 @@ export const ResultList = () => {
   const { data, error, loading } = useFetch(url);
 
   if (loading) {
-    return (
-      <>
-        return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />
-      </>
-    );
+    return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
   }
   if (error.isError) {
-    return (
-      <>
-        <p>{error.message}</p>
-      </>
-    );
+    return <p>{error.message}</p>;
   }
 
   return (
