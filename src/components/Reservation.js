@@ -7,6 +7,9 @@ import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getDatesInRange } from "../utils/getDatesInRange";
+import { HalfMalf } from "react-spinner-animated";
+
+import "react-spinner-animated/dist/index.css";
 
 export const Reservation = ({ setOpenModal, id }) => {
   const navigate = useNavigate();
@@ -53,6 +56,13 @@ export const Reservation = ({ setOpenModal, id }) => {
       console.log(err);
     }
   };
+
+  if (loading) {
+    return <HalfMalf text={"Loading..."} width={"250px"} height={"250px"} />;
+  }
+  if (error.isError) {
+    return <>Error...</>;
+  }
   return (
     <div className="reservation">
       <div className="reservation__container">

@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 import { Header } from "../components/modules/Header";
-import { Email } from "../components/modules/Email";
 import { Footer } from "../components/modules/Footer";
 import { SearchContext } from "../context/SearchContext";
 import { AuthContext } from "../context/AuthContext";
@@ -17,7 +16,7 @@ import {
 } from "react-icons/bs";
 import { FiTarget } from "react-icons/fi";
 import { AiOutlineWifi } from "react-icons/ai";
-import { FaUmbrellaBeach } from "react-icons/fa";
+import { FaUmbrellaBeach, FaTaxi } from "react-icons/fa";
 import { MdLocalParking, MdPool, MdHotTub, MdBalcony } from "react-icons/md";
 
 import { countDays } from "../utils/countdays";
@@ -37,8 +36,6 @@ function Hotel() {
     `http://localhost:5500/api/v1/hotels/${id}`
   );
 
-  console.log(data);
-
   const {
     name,
     city,
@@ -54,7 +51,6 @@ function Hotel() {
     pool,
     jacuzzi,
     freeAirportTaxi,
-    freeCancelation,
   } = data;
 
   const [open, setOpen] = useState(false);
@@ -175,7 +171,7 @@ function Hotel() {
             )}
             {freeAirportTaxi && (
               <div className="features-container">
-                <MdLocalParking className="icon__feature" />{" "}
+                <FaTaxi className="icon__feature" />
                 <span>Free Taxi to Airport</span>
               </div>
             )}{" "}
