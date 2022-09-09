@@ -2,11 +2,10 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { AiFillEye, AiTwotoneEyeInvisible } from "react-icons/ai";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { Header } from "../components/modules/Header";
+import { checkPassword } from "../utils/checkPassword";
 
 export const Register = () => {
-  const navigate = useNavigate();
   const { loading, error, dispatch } = useContext(AuthContext);
   const [isVisible, setIsVisible] = useState(false);
   const [credentials, setCredentials] = useState({
@@ -15,23 +14,27 @@ export const Register = () => {
     email: "",
   });
 
+  const [message, setMessage] = useState("");
+
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
-    try {
-      const res = await axios.post(
-        "http://localhost:5500/api/v1/auth/register",
-        credentials
-      );
-
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      navigate("/login");
-    } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    const err = checkPassword(credentials.password);
+    if (err) dispatch({ type: "LOGIN_FAILURE", payload: err });
+    else {
+      try {
+        const res = await axios.post(
+          "http://localhost:5500/api/v1/auth/register",
+          credentials
+        );
+        setMessage(`${res.data}. Go to login page.`);
+        setTimeout(() => setMessage(""), 2000);
+      } catch (err) {
+        dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+      }
     }
   };
 
@@ -83,6 +86,7 @@ export const Register = () => {
           >
             Register
           </button>
+          <p className="confirm-message">{message}</p>
           {error && <span>{error.message}</span>}
           <p>
             Already registered? <a href="/login">Log in</a>
