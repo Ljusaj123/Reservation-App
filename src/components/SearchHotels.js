@@ -13,9 +13,6 @@ export const SearchHotels = () => {
   const [localType, setLocalType] = useState(property);
 
   const handleClick = () => {
-    const url = `http://localhost:5500/api/v1/hotels?city=${destination}&min=${
-      min || 0
-    }&max=${max || 999}`;
     dispatch({
       type: "NEW_SEARCH",
       payload: {
@@ -23,14 +20,15 @@ export const SearchHotels = () => {
         date: localDate,
         options: localOptions,
         property: localType,
-        url: url,
+        min: min,
+        max: max,
       },
     });
   };
 
   const [openDate, setOpenDate] = useState(false);
-  const [min, setMin] = useState(undefined);
-  const [max, setMax] = useState(undefined);
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(999);
 
   return (
     <div className="hotels-search">

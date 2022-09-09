@@ -19,10 +19,9 @@ export const SearchHeader = () => {
 
   useEffect(() => {
     dispatch({ type: "RESET_SEARCH" });
-  }, []);
+  }, [dispatch]);
 
   const [destination, setDestination] = useState(city);
-  console.log(destination);
   const [localDate, setLocalDate] = useState(date);
   const [localOptions, setLocalOptions] = useState(options);
 
@@ -34,14 +33,14 @@ export const SearchHeader = () => {
     if (destination === "") {
       setErrorInput(true);
     } else {
-      const url = `http://localhost:5500/api/v1/hotels?city=${destination}`;
       dispatch({
         type: "NEW_SEARCH",
         payload: {
           city: destination,
           date: localDate,
           options: localOptions,
-          url: url,
+          min: 0,
+          max: 999,
         },
       });
       navigate("/hotels");

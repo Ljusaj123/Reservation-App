@@ -9,24 +9,21 @@ export const ListCard = ({ props, type }) => {
   const { name, count, imageUrl } = props;
 
   const handleClick = () => {
-    let url = "";
     if (type === "cities") {
-      url = `http://localhost:5500/api/v1/hotels?city=${name}`;
       dispatch({
         type: "NEW_SEARCH",
-        payload: { property: "", date, options, city: name, url: url },
+        payload: { date, options, city: name, min: 0, max: 999 },
       });
     }
     if (type === "properties") {
-      url = `http://localhost:5500/api/v1/hotels?type=${name}`;
       dispatch({
         type: "NEW_SEARCH",
         payload: {
           property: name,
-          url: url,
-          city: "",
           options,
           date,
+          min: 0,
+          max: 999,
         },
       });
     }

@@ -15,6 +15,8 @@ const initialState = {
     room: 1,
   },
   property: "",
+  min: 0,
+  max: 999,
   url: "http://localhost:5500/api/v1/hotels",
 };
 
@@ -24,7 +26,32 @@ const SearchReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case "NEW_SEARCH":
-      return payload;
+      if (payload.property && payload.city) {
+        return {
+          ...payload,
+          url: `http://localhost:5500/api/v1/hotels?city=${payload.city}&type=${payload.property}&min=${payload.min}&max=${payload.max}`,
+        };
+      } else if (payload.city) {
+        return {
+          ...payload,
+          url: `http://localhost:5500/api/v1/hotels?city=${payload.city}&min=${payload.min}&max=${payload.max}`,
+        };
+      } else if (payload.property) {
+        return {
+          ...payload,
+          url: `http://localhost:5500/api/v1/hotels?type=${payload.property}&min=${payload.min}&max=${payload.max}`,
+        };
+      } else if (payload.min && payload.max) {
+        return {
+          ...payload,
+          url: `http://localhost:5500/api/v1/hotels?&min=${payload.min}&max=${payload.max}`,
+        };
+      } else {
+        return {
+          ...payload,
+          url: `http://localhost:5500/api/v1/hotels`,
+        };
+      }
     case "RESET_SEARCH":
       return initialState;
     default:
@@ -43,6 +70,8 @@ export const SearchContextProvider = ({ children }) => {
         options: state.options,
         url: state.url,
         property: state.property,
+        min: state.min,
+        max: state.max,
         dispatch,
       }}
     >
