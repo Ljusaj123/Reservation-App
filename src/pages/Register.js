@@ -23,7 +23,7 @@ export const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const err = checkPassword(credentials.password);
-    if (err) dispatch({ type: "LOGIN_FAILURE", payload: err });
+    if (err === {}) dispatch({ type: "LOGIN_FAILURE", payload: err });
     else {
       try {
         const res = await axios.post(
